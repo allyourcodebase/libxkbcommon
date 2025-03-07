@@ -1,16 +1,16 @@
 .{
-    .name = "libxkbcommon",
+    .name = .libxkbcommon,
     .version = "1.7.0",
-    .minimum_zig_version = "0.13.0",
+    .minimum_zig_version = "0.14.0",
     .dependencies = .{
         .libxkbcommon = .{
             .url = "git+https://github.com/xkbcommon/libxkbcommon.git?ref=xkbcommon-1.7.0#7a31e3585edf78be281559377e26d15f8c4bc655",
             // alternative: .url = "https://xkbcommon.org/download/libxkbcommon-1.7.0.tar.xz",
-            .hash = "1220123146d8046e49e4d3791d6cb17be83b8e2beb55b74a80e2f964f82a20dd771c",
+            .hash = "N-V-__8AAChdSQASMUbYBG5J5NN5HWyxe-g7jivrVbdKgOL5",
         },
         .libxml2 = .{
-            .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.13.5#febfc2172cac835421acdff37a6c430abf1c6b2e",
-            .hash = "12204f818f4fe7673633098a61c7f2ccab2b6ce002750d9b7fd2d12e0df78965e209",
+            .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.13.5-1#d01929f24a28b0c0532e150118b0a64376d72d9e",
+            .hash = "libxml2-2.13.5-1-qHdjhg09AADUdInufACTIMlQfWH0cffCkefYl9Wkl2ci",
             .lazy = true,
         },
     },
@@ -22,4 +22,5 @@
         "parser.c",
         "parser.h",
     },
+    .fingerprint = 0x26fbca0817da72f7, // Changing this has security and trust implications.
 }

@@ -7,6 +7,10 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    const linkage = b.option(std.builtin.LinkMode, "linkage", "Link mode") orelse .static;
+    const strip = b.option(bool, "strip", "Omit debug information");
+    const pic = b.option(bool, "pie", "Produce Position Independent Code");
+
     // if (version.major != 1) {
     //     // The versioning used for the shared libraries assumes that the major
     //     // version of xkbcommon as a whole will increase to 2 if and only if there
@@ -88,20 +92,10 @@ pub fn build(b: *std.Build) void {
     if (generated_parser) |generated| {
         const generated_parser_c, const generated_parser_h = generated;
 
-        const has_add_update_source_files =
-            comptime @import("builtin").zig_version.order(std.SemanticVersion.parse("0.14.0-dev.256+d1c14f2f5") catch unreachable) != .lt;
-
-        if (has_add_update_source_files) {
-            const update = b.addUpdateSourceFiles();
-            update_parser.dependOn(&update.step);
-            update.addCopyFileToSource(generated_parser_c, "parser.c");
-            update.addCopyFileToSource(generated_parser_h, "parser.h");
-        } else {
-            const update = b.addWriteFiles();
-            update_parser.dependOn(&update.step);
-            update.addCopyFileToSource(generated_parser_c, "parser.c");
-            update.addCopyFileToSource(generated_parser_h, "parser.h");
-        }
+        const update = b.addUpdateSourceFiles();
+        update_parser.dependOn(&update.step);
+        update.addCopyFileToSource(generated_parser_c, "parser.c");
+        update.addCopyFileToSource(generated_parser_h, "parser.h");
     } else {
         update_parser.addError("unable to find bison or byacc in $PATH or search prefixes (--search-prefix)", .{}) catch {};
         update_parser.addError("parser.c and parser.h could not be updated", .{}) catch {};
@@ -116,78 +110,93 @@ pub fn build(b: *std.Build) void {
     else
         .{ b.path("parser.c"), b.path("parser.h") };
 
-    const xkbcommon = b.addStaticLibrary(.{
+    const xkbcommon = b.addLibrary(.{
+        .linkage = linkage,
         .name = "xkbcommon",
-        .target = target,
-        .optimize = optimize,
         .version = soname_version,
-        .link_libc = true,
+        .root_module = b.createModule(.{
+            .target = target,
+            .optimize = optimize,
+            .link_libc = true,
+            .strip = strip,
+            .pic = pic,
+        }),
     });
-    xkbcommon.addCSourceFiles(.{
+    xkbcommon.root_module.addCSourceFiles(.{
         .files = libxkbcommon_sources,
         .root = upstream.path(""),
         .flags = cflags,
     });
     xkbcommon.root_module.sanitize_c = false;
-    xkbcommon.addConfigHeader(config_header);
-    xkbcommon.addCSourceFile(.{ .file = parser_c });
-    xkbcommon.addIncludePath(parser_h.dirname());
+    xkbcommon.root_module.addConfigHeader(config_header);
+    xkbcommon.root_module.addCSourceFile(.{ .file = parser_c });
+    xkbcommon.root_module.addIncludePath(parser_h.dirname());
     xkbcommon.installHeader(upstream.path("include/xkbcommon/xkbcommon.h"), "xkbcommon/xkbcommon.h");
     xkbcommon.installHeader(upstream.path("include/xkbcommon/xkbcommon-compat.h"), "xkbcommon/xkbcommon-compat.h");
     xkbcommon.installHeader(upstream.path("include/xkbcommon/xkbcommon-compose.h"), "xkbcommon/xkbcommon-compose.h");
     xkbcommon.installHeader(upstream.path("include/xkbcommon/xkbcommon-keysyms.h"), "xkbcommon/xkbcommon-keysyms.h");
     xkbcommon.installHeader(upstream.path("include/xkbcommon/xkbcommon-names.h"), "xkbcommon/xkbcommon-names.h");
-    xkbcommon.addIncludePath(upstream.path("src"));
-    xkbcommon.addIncludePath(upstream.path("include"));
+    xkbcommon.root_module.addIncludePath(upstream.path("src"));
+    xkbcommon.root_module.addIncludePath(upstream.path("include"));
     xkbcommon.version_script = upstream.path("xkbcommon.map");
     b.installArtifact(xkbcommon);
 
     if (enable_x11) {
-        const libxkbcommon_x11 = b.addStaticLibrary(.{
+        const libxkbcommon_x11 = b.addLibrary(.{
+            .linkage = linkage,
             .name = "xkbcommon-x11",
-            .target = target,
-            .optimize = optimize,
             .version = soname_version,
-            .link_libc = true,
+            .root_module = b.createModule(.{
+                .target = target,
+                .optimize = optimize,
+                .link_libc = true,
+                .strip = strip,
+                .pic = pic,
+            }),
         });
-        libxkbcommon_x11.linkSystemLibrary("xcb"); // TODO
-        libxkbcommon_x11.linkSystemLibrary("xcb-xkb"); // TODO
-        libxkbcommon_x11.addCSourceFiles(.{
+        libxkbcommon_x11.root_module.linkSystemLibrary("xcb", .{}); // TODO
+        libxkbcommon_x11.root_module.linkSystemLibrary("xcb-xkb", .{}); // TODO
+        libxkbcommon_x11.root_module.addCSourceFiles(.{
             .files = libxkbcommon_x11_sources,
             .root = upstream.path(""),
             .flags = cflags,
         });
-        libxkbcommon_x11.addConfigHeader(config_header);
+        libxkbcommon_x11.root_module.addConfigHeader(config_header);
         libxkbcommon_x11.installHeader(upstream.path("include/xkbcommon/xkbcommon-x11.h"), "xkbcommon/xkbcommon-x11.h");
-        libxkbcommon_x11.addIncludePath(upstream.path("src"));
-        libxkbcommon_x11.addIncludePath(upstream.path("include"));
+        libxkbcommon_x11.root_module.addIncludePath(upstream.path("src"));
+        libxkbcommon_x11.root_module.addIncludePath(upstream.path("include"));
         libxkbcommon_x11.version_script = upstream.path("xkbcommon-x11.map");
         b.installArtifact(libxkbcommon_x11);
     }
 
     if (enable_xkbregistry) {
-        const libxkbregistry = b.addStaticLibrary(.{
+        const libxkbregistry = b.addLibrary(.{
+            .linkage = linkage,
             .name = "xkbregistry",
-            .target = target,
-            .optimize = optimize,
             .version = soname_version,
-            .link_libc = true,
+            .root_module = b.createModule(.{
+                .target = target,
+                .optimize = optimize,
+                .link_libc = true,
+                .strip = strip,
+                .pic = pic,
+            }),
         });
-        libxkbregistry.addCSourceFiles(.{
+        libxkbregistry.root_module.addCSourceFiles(.{
             .files = libxkbregistry_sources,
             .root = upstream.path(""),
             .flags = cflags,
         });
-        libxkbregistry.addConfigHeader(config_header);
+        libxkbregistry.root_module.addConfigHeader(config_header);
         libxkbregistry.installHeader(upstream.path("include/xkbcommon/xkbregistry.h"), "xkbcommon/xkbregistry.h");
-        libxkbregistry.addIncludePath(upstream.path("src"));
-        libxkbregistry.addIncludePath(upstream.path("include"));
+        libxkbregistry.root_module.addIncludePath(upstream.path("src"));
+        libxkbregistry.root_module.addIncludePath(upstream.path("include"));
         libxkbregistry.version_script = upstream.path("xkbregistry.map");
         b.installArtifact(libxkbregistry);
 
         const link_system_libxml = b.systemIntegrationOption("libxml2", .{});
         if (link_system_libxml) {
-            libxkbregistry.linkSystemLibrary("libxml-2.0");
+            libxkbregistry.root_module.linkSystemLibrary("libxml-2.0", .{});
         } else if (b.lazyDependency("libxml2", .{
             .target = target,
             .optimize = optimize,
@@ -195,7 +204,7 @@ pub fn build(b: *std.Build) void {
             .valid = true,
             .sax1 = true,
         })) |libxml2| {
-            libxkbregistry.linkLibrary(libxml2.artifact("xml"));
+            libxkbregistry.root_module.linkLibrary(libxml2.artifact("xml"));
         }
     }
 }
