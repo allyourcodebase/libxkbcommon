@@ -11,7 +11,7 @@ First, update your `build.zig.zon`:
 ```
 # Initialize a `zig build` project if you haven't already
 zig init
-zig fetch --save git+https://github.com/allyourcodebase/libxkbcommon.git#1.7.0-1
+zig fetch --save git+https://github.com/allyourcodebase/libxkbcommon.git#1.9.2
 ```
 
 You can then import `libxkbcommon` in your `build.zig` with:
