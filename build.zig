@@ -11,23 +11,22 @@ pub fn build(b: *std.Build) void {
     const strip = b.option(bool, "strip", "Omit debug information");
     const pic = b.option(bool, "pie", "Produce Position Independent Code");
 
-    // if (version.major != 1) {
-    //     // The versioning used for the shared libraries assumes that the major
-    //     // version of xkbcommon as a whole will increase to 2 if and only if there
-    //     // is an ABI break, at which point we should probably bump the SONAME of
-    //     // all libraries to .so.2.
-    //     @compileError("We probably need to bump the SONAME of libxkbcommon");
-    // }
-    // // To avoid an unnecessary SONAME bump, xkbcommon 1.x.y produces
-    // // libxkbcommon.so.0.x.y, libxkbcommon-x11.so.0.x.y, libxkbregistry.so.0.x.y.
-    // const soname_version: std.SemanticVersion = .{
-    //     .major = 0,
-    //     .minor = version.minor,
-    //     .patch = version.patch,
-    //     .pre = version.pre,
-    //     .build = version.build,
-    // };
-    const soname_version: std.SemanticVersion = .{ .major = 0, .minor = 0, .patch = 0 };
+    if (version.major != 1) {
+        // The versioning used for the shared libraries assumes that the major
+        // version of xkbcommon as a whole will increase to 2 if and only if there
+        // is an ABI break, at which point we should probably bump the SONAME of
+        // all libraries to .so.2.
+        @compileError("We probably need to bump the SONAME of libxkbcommon");
+    }
+    // To avoid an unnecessary SONAME bump, xkbcommon 1.x.y produces
+    // libxkbcommon.so.0.x.y, libxkbcommon-x11.so.0.x.y, libxkbregistry.so.0.x.y.
+    const soname_version: std.SemanticVersion = .{
+        .major = 0,
+        .minor = version.minor,
+        .patch = version.patch,
+        .pre = version.pre,
+        .build = version.build,
+    };
 
     // Most of these config options have not been tested.
 
@@ -59,20 +58,20 @@ pub fn build(b: *std.Build) void {
         .DEFAULT_XKB_RULES = default_rules,
         .DEFAULT_XKB_MODEL = default_model,
         .DEFAULT_XKB_LAYOUT = default_layout,
-        // .DEFAULT_XKB_VARIANT
-        // .DEFAULT_XKB_OPTIONS
+        .DEFAULT_XKB_VARIANT = .null,
+        .DEFAULT_XKB_OPTIONS = .null,
         .HAVE_UNISTD_H = 1,
         .HAVE___BUILTIN_EXPECT = 1,
-        .HAVE_EACCESS = 1,
-        .HAVE_EUIDACCESS = 1,
-        .HAVE_MMAP = 1,
-        .HAVE_MKOSTEMP = 1,
-        .HAVE_POSIX_FALLOCATE = 1,
-        .HAVE_STRNDUP = 1,
+        .HAVE_EACCESS = if (target.result.os.tag == .linux) @as(i64, 1) else null,
+        .HAVE_EUIDACCESS = if (target.result.os.tag == .linux) @as(i64, 1) else null,
+        .HAVE_MMAP = if (target.result.os.tag != .windows) @as(i64, 1) else null,
+        .HAVE_MKOSTEMP = if (target.result.os.tag != .windows) @as(i64, 1) else null,
+        .HAVE_POSIX_FALLOCATE = if (target.result.os.tag != .windows) @as(i64, 1) else null,
+        .HAVE_STRNDUP = if (target.result.os.tag != .windows) @as(i64, 1) else null,
         .HAVE_ASPRINTF = 1,
-        // .HAVE_VASPRINTF = 1,
-        .HAVE_SECURE_GETENV = 1,
-        // .HAVE___SECURE_GETENV = 1,
+        .HAVE_VASPRINTF = null,
+        .HAVE_OPEN_MEMSTREAM = if (target.result.os.tag != .windows) @as(i64, 1) else null,
+        .HAVE_SECURE_GETENV = if (target.result.os.tag != .windows) @as(i64, 1) else null,
         .PATH_MAX = @as(i64, if (target.result.os.tag == .windows) 260 else 4096),
     });
     if (default_variant) |variant| {
@@ -120,6 +119,7 @@ pub fn build(b: *std.Build) void {
             .link_libc = true,
             .strip = strip,
             .pic = pic,
+            .sanitize_c = if (@hasDecl(std.zig, "SanitizeC")) .off else false,
         }),
     });
     xkbcommon.root_module.addCSourceFiles(.{
@@ -127,7 +127,6 @@ pub fn build(b: *std.Build) void {
         .root = upstream.path(""),
         .flags = cflags,
     });
-    xkbcommon.root_module.sanitize_c = false;
     xkbcommon.root_module.addConfigHeader(config_header);
     xkbcommon.root_module.addCSourceFile(.{ .file = parser_c });
     xkbcommon.root_module.addIncludePath(parser_h.dirname());
@@ -136,6 +135,7 @@ pub fn build(b: *std.Build) void {
     xkbcommon.installHeader(upstream.path("include/xkbcommon/xkbcommon-compose.h"), "xkbcommon/xkbcommon-compose.h");
     xkbcommon.installHeader(upstream.path("include/xkbcommon/xkbcommon-keysyms.h"), "xkbcommon/xkbcommon-keysyms.h");
     xkbcommon.installHeader(upstream.path("include/xkbcommon/xkbcommon-names.h"), "xkbcommon/xkbcommon-names.h");
+    xkbcommon.root_module.addIncludePath(upstream.path("."));
     xkbcommon.root_module.addIncludePath(upstream.path("src"));
     xkbcommon.root_module.addIncludePath(upstream.path("include"));
     xkbcommon.version_script = upstream.path("xkbcommon.map");
@@ -197,6 +197,8 @@ pub fn build(b: *std.Build) void {
         const link_system_libxml = b.systemIntegrationOption("libxml2", .{});
         if (link_system_libxml) {
             libxkbregistry.root_module.linkSystemLibrary("libxml-2.0", .{});
+            libxkbregistry.root_module.addCMacro("HAVE_XML_CTXT_SET_ERRORHANDLER", "0"); // TODO Since libxml-2.13
+            libxkbregistry.root_module.addCMacro("HAVE_XML_CTXT_PARSE_DTD", "0"); // TODO Since libxml-2.14
         } else if (b.lazyDependency("libxml2", .{
             .target = target,
             .optimize = optimize,
@@ -205,6 +207,8 @@ pub fn build(b: *std.Build) void {
             .sax1 = true,
         })) |libxml2| {
             libxkbregistry.root_module.linkLibrary(libxml2.artifact("xml"));
+            libxkbregistry.root_module.addCMacro("HAVE_XML_CTXT_SET_ERRORHANDLER", "1");
+            libxkbregistry.root_module.addCMacro("HAVE_XML_CTXT_PARSE_DTD", "1");
         }
     }
 }
@@ -252,6 +256,7 @@ fn generateParser(
 }
 
 const cflags: []const []const u8 = &.{
+    "-std=c11",
     "-fno-strict-aliasing",
     "-Wno-unused-parameter",
     "-Wno-missing-field-initializers",
@@ -263,10 +268,11 @@ const cflags: []const []const u8 = &.{
     "-Wnested-externs",
     "-Wbad-function-cast",
     "-Wshadow",
-    // "-Wlogical-op",
+    "-Wlogical-op",
     "-Wdate-time",
     "-Wwrite-strings",
     "-Wno-documentation-deprecated-sync",
+    "-Wno-pedantic",
 };
 
 const libxkbcommon_sources: []const []const u8 = &.{
@@ -293,13 +299,17 @@ const libxkbcommon_sources: []const []const u8 = &.{
     "src/context.c",
     "src/context-priv.c",
     "src/keysym.c",
+    "src/keysym-case-mappings.c",
     "src/keysym-utf.c",
     "src/keymap.c",
     "src/keymap-priv.c",
+    "src/scanner-utils.c",
     "src/state.c",
     "src/text.c",
     "src/utf8.c",
+    "src/utf8-decoding.c",
     "src/utils.c",
+    "src/utils-paths.c",
 };
 
 const libxkbcommon_x11_sources: []const []const u8 = &.{

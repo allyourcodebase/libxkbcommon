@@ -1,16 +1,16 @@
 .{
     .name = .libxkbcommon,
-    .version = "1.7.0-1",
+    .version = "1.9.2",
     .minimum_zig_version = "0.14.0",
     .dependencies = .{
         .libxkbcommon = .{
-            .url = "git+https://github.com/xkbcommon/libxkbcommon.git?ref=xkbcommon-1.7.0#7a31e3585edf78be281559377e26d15f8c4bc655",
-            // alternative: .url = "https://xkbcommon.org/download/libxkbcommon-1.7.0.tar.xz",
-            .hash = "N-V-__8AAChdSQASMUbYBG5J5NN5HWyxe-g7jivrVbdKgOL5",
+            .url = "git+https://github.com/xkbcommon/libxkbcommon.git?ref=xkbcommon-1.9.2#dd642359f8d43c09968e34ca7f1eb1121b2dfd70",
+            // alternative: .url = "https://xkbcommon.org/download/libxkbcommon-1.9.2.tar.xz",
+            .hash = "N-V-__8AAEg7XADqmm_Axa-ISq9_0pDsCLjf9Xd8NIOndVMH",
         },
         .libxml2 = .{
-            .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.13.5-1#d01929f24a28b0c0532e150118b0a64376d72d9e",
-            .hash = "libxml2-2.13.5-1-qHdjhg09AADUdInufACTIMlQfWH0cffCkefYl9Wkl2ci",
+            .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.14.3#2fe1a209680cffa7f2c8b2f36228c519da26d0f8",
+            .hash = "libxml2-2.14.3-qHdjhm8-AADj87LUvzLuq5RnsoKBZCsh1dMCP3yCI2hc",
             .lazy = true,
         },
     },

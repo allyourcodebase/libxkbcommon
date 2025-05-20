@@ -44,6 +44,13 @@
 #if YYDEBUG
 extern int _xkbcommon_debug;
 #endif
+/* "%code requires" blocks.  */
+
+#include "config.h"
+
+#include "scanner-utils.h"
+#include "xkbcomp/ast.h"
+
 
 /* Token kinds.  */
 #ifndef YYTOKENTYPE
@@ -128,12 +135,14 @@ union YYSTYPE
         int64_t          num;
         enum xkb_file_type file_type;
         char            *str;
+        struct sval     sval;
         xkb_atom_t      atom;
         enum merge_mode merge;
         enum xkb_map_flags mapFlags;
         xkb_keysym_t    keysym;
         ParseCommon     *any;
         struct { ParseCommon *head; ParseCommon *last; } anyList;
+        uint32_t        noSymbolOrActionList;
         ExprDef         *expr;
         struct { ExprDef *head; ExprDef *last; } exprList;
         VarDef          *var;
