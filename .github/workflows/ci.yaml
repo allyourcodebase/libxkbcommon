@@ -13,17 +13,13 @@ jobs:
   build:
     strategy:
       fail-fast: false
-      matrix:
-        zig-version: [master, 0.14.0]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Zig
-        uses: mlugg/setup-zig@v1
-        with:
-          version: ${{ matrix.zig-version }}
+        uses: mlugg/setup-zig@v2
 
       - name: Check Formatting
         run: zig fmt --ast-check --check .
