@@ -49,7 +49,7 @@ pub fn build(b: *std.Build) void {
 
     const config_header = b.addConfigHeader(.{}, .{
         .EXIT_INVALID_USAGE = 2,
-        .LIBXKBCOMMON_VERSION = b.fmt("{}", .{version}),
+        .LIBXKBCOMMON_VERSION = b.fmt("{f}", .{version}),
         .LIBXKBCOMMON_TOOL_PATH = b.pathJoin(&.{ b.install_prefix, "libexec/xkbcommon" }),
         ._GNU_SOURCE = 1,
         .DFLT_XKB_CONFIG_ROOT = xkb_config_root,
