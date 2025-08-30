@@ -164,71 +164,71 @@ resolve_keysym(struct parser_param *param, struct sval name, xkb_keysym_t *sym_r
 enum yysymbol_kind_t
 {
   YYSYMBOL_YYEMPTY = -2,
-  YYSYMBOL_YYEOF = 0,                      /* END_OF_FILE  */
+  YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
-  YYSYMBOL_ERROR_TOK = 3,                  /* ERROR_TOK  */
-  YYSYMBOL_XKB_KEYMAP = 4,                 /* XKB_KEYMAP  */
-  YYSYMBOL_XKB_KEYCODES = 5,               /* XKB_KEYCODES  */
-  YYSYMBOL_XKB_TYPES = 6,                  /* XKB_TYPES  */
-  YYSYMBOL_XKB_SYMBOLS = 7,                /* XKB_SYMBOLS  */
-  YYSYMBOL_XKB_COMPATMAP = 8,              /* XKB_COMPATMAP  */
-  YYSYMBOL_XKB_GEOMETRY = 9,               /* XKB_GEOMETRY  */
-  YYSYMBOL_XKB_SEMANTICS = 10,             /* XKB_SEMANTICS  */
-  YYSYMBOL_XKB_LAYOUT = 11,                /* XKB_LAYOUT  */
-  YYSYMBOL_INCLUDE = 12,                   /* INCLUDE  */
-  YYSYMBOL_OVERRIDE = 13,                  /* OVERRIDE  */
-  YYSYMBOL_AUGMENT = 14,                   /* AUGMENT  */
-  YYSYMBOL_REPLACE = 15,                   /* REPLACE  */
-  YYSYMBOL_ALTERNATE = 16,                 /* ALTERNATE  */
-  YYSYMBOL_VIRTUAL_MODS = 17,              /* VIRTUAL_MODS  */
-  YYSYMBOL_TYPE = 18,                      /* TYPE  */
-  YYSYMBOL_INTERPRET = 19,                 /* INTERPRET  */
-  YYSYMBOL_ACTION_TOK = 20,                /* ACTION_TOK  */
-  YYSYMBOL_KEY = 21,                       /* KEY  */
-  YYSYMBOL_ALIAS = 22,                     /* ALIAS  */
-  YYSYMBOL_GROUP = 23,                     /* GROUP  */
-  YYSYMBOL_MODIFIER_MAP = 24,              /* MODIFIER_MAP  */
-  YYSYMBOL_INDICATOR = 25,                 /* INDICATOR  */
-  YYSYMBOL_SHAPE = 26,                     /* SHAPE  */
-  YYSYMBOL_KEYS = 27,                      /* KEYS  */
-  YYSYMBOL_ROW = 28,                       /* ROW  */
-  YYSYMBOL_SECTION = 29,                   /* SECTION  */
-  YYSYMBOL_OVERLAY = 30,                   /* OVERLAY  */
-  YYSYMBOL_TEXT = 31,                      /* TEXT  */
-  YYSYMBOL_OUTLINE = 32,                   /* OUTLINE  */
-  YYSYMBOL_SOLID = 33,                     /* SOLID  */
-  YYSYMBOL_LOGO = 34,                      /* LOGO  */
-  YYSYMBOL_VIRTUAL = 35,                   /* VIRTUAL  */
-  YYSYMBOL_EQUALS = 36,                    /* EQUALS  */
-  YYSYMBOL_PLUS = 37,                      /* PLUS  */
-  YYSYMBOL_MINUS = 38,                     /* MINUS  */
-  YYSYMBOL_DIVIDE = 39,                    /* DIVIDE  */
-  YYSYMBOL_TIMES = 40,                     /* TIMES  */
-  YYSYMBOL_OBRACE = 41,                    /* OBRACE  */
-  YYSYMBOL_CBRACE = 42,                    /* CBRACE  */
-  YYSYMBOL_OPAREN = 43,                    /* OPAREN  */
-  YYSYMBOL_CPAREN = 44,                    /* CPAREN  */
-  YYSYMBOL_OBRACKET = 45,                  /* OBRACKET  */
-  YYSYMBOL_CBRACKET = 46,                  /* CBRACKET  */
-  YYSYMBOL_DOT = 47,                       /* DOT  */
-  YYSYMBOL_COMMA = 48,                     /* COMMA  */
-  YYSYMBOL_SEMI = 49,                      /* SEMI  */
-  YYSYMBOL_EXCLAM = 50,                    /* EXCLAM  */
-  YYSYMBOL_INVERT = 51,                    /* INVERT  */
-  YYSYMBOL_STRING = 52,                    /* STRING  */
-  YYSYMBOL_INTEGER = 53,                   /* INTEGER  */
-  YYSYMBOL_FLOAT = 54,                     /* FLOAT  */
-  YYSYMBOL_IDENT = 55,                     /* IDENT  */
-  YYSYMBOL_KEYNAME = 56,                   /* KEYNAME  */
-  YYSYMBOL_PARTIAL = 57,                   /* PARTIAL  */
-  YYSYMBOL_DEFAULT = 58,                   /* DEFAULT  */
-  YYSYMBOL_HIDDEN = 59,                    /* HIDDEN  */
-  YYSYMBOL_ALPHANUMERIC_KEYS = 60,         /* ALPHANUMERIC_KEYS  */
-  YYSYMBOL_MODIFIER_KEYS = 61,             /* MODIFIER_KEYS  */
-  YYSYMBOL_KEYPAD_KEYS = 62,               /* KEYPAD_KEYS  */
-  YYSYMBOL_FUNCTION_KEYS = 63,             /* FUNCTION_KEYS  */
-  YYSYMBOL_ALTERNATE_GROUP = 64,           /* ALTERNATE_GROUP  */
+  YYSYMBOL_ERROR_TOK = 3,                  /* "invalid token"  */
+  YYSYMBOL_XKB_KEYMAP = 4,                 /* "xkb_keymap"  */
+  YYSYMBOL_XKB_KEYCODES = 5,               /* "xkb_keycodes"  */
+  YYSYMBOL_XKB_TYPES = 6,                  /* "xkb_types"  */
+  YYSYMBOL_XKB_SYMBOLS = 7,                /* "xkb_symbols"  */
+  YYSYMBOL_XKB_COMPATMAP = 8,              /* "xkb_compatibility"  */
+  YYSYMBOL_XKB_GEOMETRY = 9,               /* "xkb_geometry"  */
+  YYSYMBOL_XKB_SEMANTICS = 10,             /* "xkb_semantics"  */
+  YYSYMBOL_XKB_LAYOUT = 11,                /* "xkb_layout"  */
+  YYSYMBOL_INCLUDE = 12,                   /* "include"  */
+  YYSYMBOL_OVERRIDE = 13,                  /* "override"  */
+  YYSYMBOL_AUGMENT = 14,                   /* "augment"  */
+  YYSYMBOL_REPLACE = 15,                   /* "replace"  */
+  YYSYMBOL_ALTERNATE = 16,                 /* "alternate"  */
+  YYSYMBOL_VIRTUAL_MODS = 17,              /* "virtual_modifiers"  */
+  YYSYMBOL_TYPE = 18,                      /* "type"  */
+  YYSYMBOL_INTERPRET = 19,                 /* "interpret"  */
+  YYSYMBOL_ACTION_TOK = 20,                /* "action"  */
+  YYSYMBOL_KEY = 21,                       /* "key"  */
+  YYSYMBOL_ALIAS = 22,                     /* "alias"  */
+  YYSYMBOL_GROUP = 23,                     /* "group"  */
+  YYSYMBOL_MODIFIER_MAP = 24,              /* "modifier_map"  */
+  YYSYMBOL_INDICATOR = 25,                 /* "indicator"  */
+  YYSYMBOL_SHAPE = 26,                     /* "shape"  */
+  YYSYMBOL_KEYS = 27,                      /* "keys"  */
+  YYSYMBOL_ROW = 28,                       /* "row"  */
+  YYSYMBOL_SECTION = 29,                   /* "section"  */
+  YYSYMBOL_OVERLAY = 30,                   /* "overlay"  */
+  YYSYMBOL_TEXT = 31,                      /* "text"  */
+  YYSYMBOL_OUTLINE = 32,                   /* "outline"  */
+  YYSYMBOL_SOLID = 33,                     /* "solid"  */
+  YYSYMBOL_LOGO = 34,                      /* "logo"  */
+  YYSYMBOL_VIRTUAL = 35,                   /* "virtual"  */
+  YYSYMBOL_EQUALS = 36,                    /* "="  */
+  YYSYMBOL_PLUS = 37,                      /* "+"  */
+  YYSYMBOL_MINUS = 38,                     /* "-"  */
+  YYSYMBOL_DIVIDE = 39,                    /* "/"  */
+  YYSYMBOL_TIMES = 40,                     /* "*"  */
+  YYSYMBOL_OBRACE = 41,                    /* "{"  */
+  YYSYMBOL_CBRACE = 42,                    /* "}"  */
+  YYSYMBOL_OPAREN = 43,                    /* "("  */
+  YYSYMBOL_CPAREN = 44,                    /* ")"  */
+  YYSYMBOL_OBRACKET = 45,                  /* "["  */
+  YYSYMBOL_CBRACKET = 46,                  /* "]"  */
+  YYSYMBOL_DOT = 47,                       /* "."  */
+  YYSYMBOL_COMMA = 48,                     /* ","  */
+  YYSYMBOL_SEMI = 49,                      /* ";"  */
+  YYSYMBOL_EXCLAM = 50,                    /* "!"  */
+  YYSYMBOL_INVERT = 51,                    /* "~"  */
+  YYSYMBOL_STRING = 52,                    /* "string literal"  */
+  YYSYMBOL_INTEGER = 53,                   /* "integer literal"  */
+  YYSYMBOL_FLOAT = 54,                     /* "float literal"  */
+  YYSYMBOL_IDENT = 55,                     /* "identifier"  */
+  YYSYMBOL_KEYNAME = 56,                   /* "key name"  */
+  YYSYMBOL_PARTIAL = 57,                   /* "partial"  */
+  YYSYMBOL_DEFAULT = 58,                   /* "default"  */
+  YYSYMBOL_HIDDEN = 59,                    /* "hidden"  */
+  YYSYMBOL_ALPHANUMERIC_KEYS = 60,         /* "alphanumeric_keys"  */
+  YYSYMBOL_MODIFIER_KEYS = 61,             /* "modifier_keys"  */
+  YYSYMBOL_KEYPAD_KEYS = 62,               /* "keypad_keys"  */
+  YYSYMBOL_FUNCTION_KEYS = 63,             /* "function_keys"  */
+  YYSYMBOL_ALTERNATE_GROUP = 64,           /* "alternate_group"  */
   YYSYMBOL_YYACCEPT = 65,                  /* $accept  */
   YYSYMBOL_XkbFile = 66,                   /* XkbFile  */
   YYSYMBOL_XkbCompositeMap = 67,           /* XkbCompositeMap  */
@@ -506,7 +506,7 @@ typedef int yy_state_fast_t;
 
 #define YY_ASSERT(E) ((void) (0 && (E)))
 
-#if !defined yyoverflow
+#if 1
 
 /* The parser invokes alloca or malloc; define the necessary symbols.  */
 
@@ -571,7 +571,7 @@ void free (void *); /* INFRINGES ON USER NAME SPACE */
 #   endif
 #  endif
 # endif
-#endif /* !defined yyoverflow */
+#endif /* 1 */
 
 #if (! defined yyoverflow \
      && (! defined __cplusplus \
@@ -694,57 +694,58 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,   259,   259,   261,   263,   267,   273,   274,   275,   281,
-     293,   296,   304,   305,   306,   307,   308,   311,   312,   315,
-     316,   319,   320,   321,   322,   323,   324,   325,   326,   329,
-     344,   354,   357,   363,   368,   373,   378,   383,   388,   393,
-     398,   403,   408,   409,   410,   411,   418,   420,   422,   426,
-     430,   434,   438,   440,   444,   446,   450,   456,   458,   462,
-     474,   477,   483,   489,   490,   493,   495,   499,   500,   501,
-     502,   503,   518,   520,   538,   540,   562,   568,   570,   572,
-     575,   579,   583,   585,   589,   591,   595,   599,   601,   605,
-     607,   611,   615,   616,   619,   621,   623,   625,   627,   631,
-     632,   635,   636,   640,   641,   644,   646,   650,   654,   655,
-     658,   661,   663,   667,   669,   671,   675,   677,   681,   685,
-     689,   690,   691,   692,   695,   696,   699,   701,   703,   705,
-     707,   709,   711,   713,   715,   717,   719,   723,   724,   727,
-     728,   729,   730,   731,   743,   755,   757,   760,   762,   764,
-     766,   768,   770,   774,   776,   778,   780,   782,   784,   786,
-     788,   790,   794,   800,   802,   804,   808,   810,   814,   818,
-     820,   824,   828,   830,   832,   834,   838,   840,   842,   844,
-     848,   854,   856,   858,   862,   864,   871,   877,   889,   891,
-     903,   905,   909,   911,   920,   933,   934,   984,   985,   988,
-     989,   992,   995,   998,  1001,  1002,  1005,  1008,  1009,  1012
+       0,   262,   262,   264,   266,   270,   276,   277,   278,   284,
+     296,   299,   307,   308,   309,   310,   311,   314,   315,   318,
+     319,   322,   323,   324,   325,   326,   327,   328,   329,   332,
+     347,   357,   360,   366,   371,   376,   381,   386,   391,   396,
+     401,   406,   411,   412,   413,   414,   421,   423,   425,   429,
+     433,   437,   441,   443,   447,   449,   453,   459,   461,   465,
+     477,   480,   486,   492,   493,   496,   498,   502,   503,   504,
+     505,   506,   521,   523,   541,   543,   565,   571,   573,   575,
+     578,   582,   586,   588,   592,   594,   598,   602,   604,   608,
+     610,   614,   618,   619,   622,   624,   626,   628,   630,   634,
+     635,   638,   639,   643,   644,   647,   649,   653,   657,   658,
+     661,   664,   666,   670,   672,   674,   678,   680,   684,   688,
+     692,   693,   694,   695,   698,   699,   702,   704,   706,   708,
+     710,   712,   714,   716,   718,   720,   722,   726,   727,   730,
+     731,   732,   733,   734,   746,   758,   760,   763,   765,   767,
+     769,   771,   773,   777,   779,   781,   783,   785,   787,   789,
+     791,   793,   797,   803,   805,   807,   811,   813,   817,   821,
+     823,   827,   831,   833,   835,   837,   841,   843,   845,   847,
+     851,   857,   859,   861,   865,   867,   874,   880,   892,   894,
+     906,   908,   912,   914,   923,   936,   937,   987,   988,   991,
+     992,   995,   998,  1001,  1004,  1005,  1008,  1011,  1012,  1015
 };
 #endif
 
 /** Accessing symbol of state STATE.  */
 #define YY_ACCESSING_SYMBOL(State) YY_CAST (yysymbol_kind_t, yystos[State])
 
-#if YYDEBUG || 0
+#if 1
 /* The user-facing name of the symbol whose (internal) number is
    YYSYMBOL.  No bounds checking.  */
 static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 
-/* YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
-   First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
-static const char *const yytname[] =
+static const char *
+yysymbol_name (yysymbol_kind_t yysymbol)
 {
-  "END_OF_FILE", "error", "\"invalid token\"", "ERROR_TOK", "XKB_KEYMAP",
-  "XKB_KEYCODES", "XKB_TYPES", "XKB_SYMBOLS", "XKB_COMPATMAP",
-  "XKB_GEOMETRY", "XKB_SEMANTICS", "XKB_LAYOUT", "INCLUDE", "OVERRIDE",
-  "AUGMENT", "REPLACE", "ALTERNATE", "VIRTUAL_MODS", "TYPE", "INTERPRET",
-  "ACTION_TOK", "KEY", "ALIAS", "GROUP", "MODIFIER_MAP", "INDICATOR",
-  "SHAPE", "KEYS", "ROW", "SECTION", "OVERLAY", "TEXT", "OUTLINE", "SOLID",
-  "LOGO", "VIRTUAL", "EQUALS", "PLUS", "MINUS", "DIVIDE", "TIMES",
-  "OBRACE", "CBRACE", "OPAREN", "CPAREN", "OBRACKET", "CBRACKET", "DOT",
-  "COMMA", "SEMI", "EXCLAM", "INVERT", "STRING", "INTEGER", "FLOAT",
-  "IDENT", "KEYNAME", "PARTIAL", "DEFAULT", "HIDDEN", "ALPHANUMERIC_KEYS",
-  "MODIFIER_KEYS", "KEYPAD_KEYS", "FUNCTION_KEYS", "ALTERNATE_GROUP",
-  "$accept", "XkbFile", "XkbCompositeMap", "XkbCompositeType",
-  "XkbMapConfigList", "XkbMapConfig", "FileType", "OptFlags", "Flags",
-  "Flag", "DeclList", "Decl", "VarDecl", "KeyNameDecl", "KeyAliasDecl",
-  "VModDecl", "VModDefList", "VModDef", "InterpretDecl", "InterpretMatch",
+  static const char *const yy_sname[] =
+  {
+  "end of file", "error", "invalid token", "invalid token", "xkb_keymap",
+  "xkb_keycodes", "xkb_types", "xkb_symbols", "xkb_compatibility",
+  "xkb_geometry", "xkb_semantics", "xkb_layout", "include", "override",
+  "augment", "replace", "alternate", "virtual_modifiers", "type",
+  "interpret", "action", "key", "alias", "group", "modifier_map",
+  "indicator", "shape", "keys", "row", "section", "overlay", "text",
+  "outline", "solid", "logo", "virtual", "=", "+", "-", "/", "*", "{", "}",
+  "(", ")", "[", "]", ".", ",", ";", "!", "~", "string literal",
+  "integer literal", "float literal", "identifier", "key name", "partial",
+  "default", "hidden", "alphanumeric_keys", "modifier_keys", "keypad_keys",
+  "function_keys", "alternate_group", "$accept", "XkbFile",
+  "XkbCompositeMap", "XkbCompositeType", "XkbMapConfigList",
+  "XkbMapConfig", "FileType", "OptFlags", "Flags", "Flag", "DeclList",
+  "Decl", "VarDecl", "KeyNameDecl", "KeyAliasDecl", "VModDecl",
+  "VModDefList", "VModDef", "InterpretDecl", "InterpretMatch",
   "VarDeclList", "KeyTypeDecl", "SymbolsDecl", "OptSymbolsBody",
   "SymbolsBody", "SymbolsVarDecl", "MultiKeySymOrActionList",
   "NoSymbolOrActionList", "GroupCompatDecl", "ModMapDecl",
@@ -758,12 +759,8 @@ static const char *const yytname[] =
   "MultiKeySymList", "KeySymList", "NonEmptyKeySyms", "KeySyms", "KeySym",
   "KeySymLit", "SignedNumber", "Number", "Float", "Integer", "KeyCode",
   "Ident", "String", "OptMapName", "MapName", YY_NULLPTR
-};
-
-static const char *
-yysymbol_name (yysymbol_kind_t yysymbol)
-{
-  return yytname[yysymbol];
+  };
+  return yy_sname[yysymbol];
 }
 #endif
 
@@ -1353,8 +1350,226 @@ int yydebug;
 #endif
 
 
+/* Context of a parse error.  */
+typedef struct
+{
+  yy_state_t *yyssp;
+  yysymbol_kind_t yytoken;
+} yypcontext_t;
+
+/* Put in YYARG at most YYARGN of the expected tokens given the
+   current YYCTX, and return the number of tokens stored in YYARG.  If
+   YYARG is null, return the number of expected tokens (guaranteed to
+   be less than YYNTOKENS).  Return YYENOMEM on memory exhaustion.
+   Return 0 if there are more than YYARGN expected tokens, yet fill
+   YYARG up to YYARGN. */
+static int
+yypcontext_expected_tokens (const yypcontext_t *yyctx,
+                            yysymbol_kind_t yyarg[], int yyargn)
+{
+  /* Actual size of YYARG. */
+  int yycount = 0;
+  int yyn = yypact[+*yyctx->yyssp];
+  if (!yypact_value_is_default (yyn))
+    {
+      /* Start YYX at -YYN if negative to avoid negative indexes in
+         YYCHECK.  In other words, skip the first -YYN actions for
+         this state because they are default actions.  */
+      int yyxbegin = yyn < 0 ? -yyn : 0;
+      /* Stay within bounds of both yycheck and yytname.  */
+      int yychecklim = YYLAST - yyn + 1;
+      int yyxend = yychecklim < YYNTOKENS ? yychecklim : YYNTOKENS;
+      int yyx;
+      for (yyx = yyxbegin; yyx < yyxend; ++yyx)
+        if (yycheck[yyx + yyn] == yyx && yyx != YYSYMBOL_YYerror
+            && !yytable_value_is_error (yytable[yyx + yyn]))
+          {
+            if (!yyarg)
+              ++yycount;
+            else if (yycount == yyargn)
+              return 0;
+            else
+              yyarg[yycount++] = YY_CAST (yysymbol_kind_t, yyx);
+          }
+    }
+  if (yyarg && yycount == 0 && 0 < yyargn)
+    yyarg[0] = YYSYMBOL_YYEMPTY;
+  return yycount;
+}
 
 
+
+
+#ifndef yystrlen
+# if defined __GLIBC__ && defined _STRING_H
+#  define yystrlen(S) (YY_CAST (YYPTRDIFF_T, strlen (S)))
+# else
+/* Return the length of YYSTR.  */
+static YYPTRDIFF_T
+yystrlen (const char *yystr)
+{
+  YYPTRDIFF_T yylen;
+  for (yylen = 0; yystr[yylen]; yylen++)
+    continue;
+  return yylen;
+}
+# endif
+#endif
+
+#ifndef yystpcpy
+# if defined __GLIBC__ && defined _STRING_H && defined _GNU_SOURCE
+#  define yystpcpy stpcpy
+# else
+/* Copy YYSRC to YYDEST, returning the address of the terminating '\0' in
+   YYDEST.  */
+static char *
+yystpcpy (char *yydest, const char *yysrc)
+{
+  char *yyd = yydest;
+  const char *yys = yysrc;
+
+  while ((*yyd++ = *yys++) != '\0')
+    continue;
+
+  return yyd - 1;
+}
+# endif
+#endif
+
+
+
+static int
+yy_syntax_error_arguments (const yypcontext_t *yyctx,
+                           yysymbol_kind_t yyarg[], int yyargn)
+{
+  /* Actual size of YYARG. */
+  int yycount = 0;
+  /* There are many possibilities here to consider:
+     - If this state is a consistent state with a default action, then
+       the only way this function was invoked is if the default action
+       is an error action.  In that case, don't check for expected
+       tokens because there are none.
+     - The only way there can be no lookahead present (in yychar) is if
+       this state is a consistent state with a default action.  Thus,
+       detecting the absence of a lookahead is sufficient to determine
+       that there is no unexpected or expected token to report.  In that
+       case, just report a simple "syntax error".
+     - Don't assume there isn't a lookahead just because this state is a
+       consistent state with a default action.  There might have been a
+       previous inconsistent state, consistent state with a non-default
+       action, or user semantic action that manipulated yychar.
+     - Of course, the expected token list depends on states to have
+       correct lookahead information, and it depends on the parser not
+       to perform extra reductions after fetching a lookahead from the
+       scanner and before detecting a syntax error.  Thus, state merging
+       (from LALR or IELR) and default reductions corrupt the expected
+       token list.  However, the list is correct for canonical LR with
+       one exception: it will still contain any token that will not be
+       accepted due to an error action in a later state.
+  */
+  if (yyctx->yytoken != YYSYMBOL_YYEMPTY)
+    {
+      int yyn;
+      if (yyarg)
+        yyarg[yycount] = yyctx->yytoken;
+      ++yycount;
+      yyn = yypcontext_expected_tokens (yyctx,
+                                        yyarg ? yyarg + 1 : yyarg, yyargn - 1);
+      if (yyn == YYENOMEM)
+        return YYENOMEM;
+      else
+        yycount += yyn;
+    }
+  return yycount;
+}
+
+/* Copy into *YYMSG, which is of size *YYMSG_ALLOC, an error message
+   about the unexpected token YYTOKEN for the state stack whose top is
+   YYSSP.
+
+   Return 0 if *YYMSG was successfully written.  Return -1 if *YYMSG is
+   not large enough to hold the message.  In that case, also set
+   *YYMSG_ALLOC to the required number of bytes.  Return YYENOMEM if the
+   required number of bytes is too large to store.  */
+static int
+yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
+                const yypcontext_t *yyctx)
+{
+  enum { YYARGS_MAX = 5 };
+  /* Internationalized format string. */
+  const char *yyformat = YY_NULLPTR;
+  /* Arguments of yyformat: reported tokens (one for the "unexpected",
+     one per "expected"). */
+  yysymbol_kind_t yyarg[YYARGS_MAX];
+  /* Cumulated lengths of YYARG.  */
+  YYPTRDIFF_T yysize = 0;
+
+  /* Actual size of YYARG. */
+  int yycount = yy_syntax_error_arguments (yyctx, yyarg, YYARGS_MAX);
+  if (yycount == YYENOMEM)
+    return YYENOMEM;
+
+  switch (yycount)
+    {
+#define YYCASE_(N, S)                       \
+      case N:                               \
+        yyformat = S;                       \
+        break
+    default: /* Avoid compiler warnings. */
+      YYCASE_(0, YY_("syntax error"));
+      YYCASE_(1, YY_("syntax error, unexpected %s"));
+      YYCASE_(2, YY_("syntax error, unexpected %s, expecting %s"));
+      YYCASE_(3, YY_("syntax error, unexpected %s, expecting %s or %s"));
+      YYCASE_(4, YY_("syntax error, unexpected %s, expecting %s or %s or %s"));
+      YYCASE_(5, YY_("syntax error, unexpected %s, expecting %s or %s or %s or %s"));
+#undef YYCASE_
+    }
+
+  /* Compute error message size.  Don't count the "%s"s, but reserve
+     room for the terminator.  */
+  yysize = yystrlen (yyformat) - 2 * yycount + 1;
+  {
+    int yyi;
+    for (yyi = 0; yyi < yycount; ++yyi)
+      {
+        YYPTRDIFF_T yysize1
+          = yysize + yystrlen (yysymbol_name (yyarg[yyi]));
+        if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
+          yysize = yysize1;
+        else
+          return YYENOMEM;
+      }
+  }
+
+  if (*yymsg_alloc < yysize)
+    {
+      *yymsg_alloc = 2 * yysize;
+      if (! (yysize <= *yymsg_alloc
+             && *yymsg_alloc <= YYSTACK_ALLOC_MAXIMUM))
+        *yymsg_alloc = YYSTACK_ALLOC_MAXIMUM;
+      return -1;
+    }
+
+  /* Avoid sprintf, as that infringes on the user's name space.
+     Don't have undefined behavior even if the translation
+     produced a string with the wrong number of "%s"s.  */
+  {
+    char *yyp = *yymsg;
+    int yyi = 0;
+    while ((*yyp = *yyformat) != '\0')
+      if (*yyp == '%' && yyformat[1] == 's' && yyi < yycount)
+        {
+          yyp = yystpcpy (yyp, yysymbol_name (yyarg[yyi++]));
+          yyformat += 2;
+        }
+      else
+        {
+          ++yyp;
+          ++yyformat;
+        }
+  }
+  return 0;
+}
 
 
 /*-----------------------------------------------.
@@ -1374,7 +1589,7 @@ yydestruct (const char *yymsg,
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   switch (yykind)
     {
-    case YYSYMBOL_STRING: /* STRING  */
+    case YYSYMBOL_STRING: /* "string literal"  */
             { free(((*yyvaluep).str)); }
         break;
 
@@ -1618,7 +1833,10 @@ YYSTYPE yylval YY_INITIAL_VALUE (= yyval_default);
      action routines.  */
   YYSTYPE yyval;
 
-
+  /* Buffer for error messages, and its allocated size.  */
+  char yymsgbuf[128];
+  char *yymsg = yymsgbuf;
+  YYPTRDIFF_T yymsg_alloc = sizeof yymsgbuf;
 
 #define YYPOPSTACK(N)   (yyvsp -= (N), yyssp -= (N))
 
@@ -1836,23 +2054,23 @@ yyreduce:
                         { (yyval.file) = param->rtrn = (yyvsp[0].file); param->more_maps = !!param->rtrn; YYACCEPT; }
     break;
 
-  case 4: /* XkbFile: END_OF_FILE  */
+  case 4: /* XkbFile: "end of file"  */
                         { (yyval.file) = param->rtrn = NULL; param->more_maps = false; }
     break;
 
-  case 5: /* XkbCompositeMap: OptFlags XkbCompositeType OptMapName OBRACE XkbMapConfigList CBRACE SEMI  */
+  case 5: /* XkbCompositeMap: OptFlags XkbCompositeType OptMapName "{" XkbMapConfigList "}" ";"  */
                         { (yyval.file) = XkbFileCreate((yyvsp[-5].file_type), (yyvsp[-4].str), (ParseCommon *) (yyvsp[-2].fileList).head, (yyvsp[-6].mapFlags)); }
     break;
 
-  case 6: /* XkbCompositeType: XKB_KEYMAP  */
+  case 6: /* XkbCompositeType: "xkb_keymap"  */
                                         { (yyval.file_type) = FILE_TYPE_KEYMAP; }
     break;
 
-  case 7: /* XkbCompositeType: XKB_SEMANTICS  */
+  case 7: /* XkbCompositeType: "xkb_semantics"  */
                                         { (yyval.file_type) = FILE_TYPE_KEYMAP; }
     break;
 
-  case 8: /* XkbCompositeType: XKB_LAYOUT  */
+  case 8: /* XkbCompositeType: "xkb_layout"  */
                                         { (yyval.file_type) = FILE_TYPE_KEYMAP; }
     break;
 
@@ -1874,29 +2092,29 @@ yyreduce:
                         { (yyval.fileList).head = (yyval.fileList).last = NULL; }
     break;
 
-  case 11: /* XkbMapConfig: OptFlags FileType OptMapName OBRACE DeclList CBRACE SEMI  */
+  case 11: /* XkbMapConfig: OptFlags FileType OptMapName "{" DeclList "}" ";"  */
                         {
                             (yyval.file) = XkbFileCreate((yyvsp[-5].file_type), (yyvsp[-4].str), (yyvsp[-2].anyList).head, (yyvsp[-6].mapFlags));
                         }
     break;
 
-  case 12: /* FileType: XKB_KEYCODES  */
+  case 12: /* FileType: "xkb_keycodes"  */
                                                 { (yyval.file_type) = FILE_TYPE_KEYCODES; }
     break;
 
-  case 13: /* FileType: XKB_TYPES  */
+  case 13: /* FileType: "xkb_types"  */
                                                 { (yyval.file_type) = FILE_TYPE_TYPES; }
     break;
 
-  case 14: /* FileType: XKB_COMPATMAP  */
+  case 14: /* FileType: "xkb_compatibility"  */
                                                 { (yyval.file_type) = FILE_TYPE_COMPAT; }
     break;
 
-  case 15: /* FileType: XKB_SYMBOLS  */
+  case 15: /* FileType: "xkb_symbols"  */
                                                 { (yyval.file_type) = FILE_TYPE_SYMBOLS; }
     break;
 
-  case 16: /* FileType: XKB_GEOMETRY  */
+  case 16: /* FileType: "xkb_geometry"  */
                                                 { (yyval.file_type) = FILE_TYPE_GEOMETRY; }
     break;
 
@@ -1916,35 +2134,35 @@ yyreduce:
                                                 { (yyval.mapFlags) = (yyvsp[0].mapFlags); }
     break;
 
-  case 21: /* Flag: PARTIAL  */
+  case 21: /* Flag: "partial"  */
                                                 { (yyval.mapFlags) = MAP_IS_PARTIAL; }
     break;
 
-  case 22: /* Flag: DEFAULT  */
+  case 22: /* Flag: "default"  */
                                                 { (yyval.mapFlags) = MAP_IS_DEFAULT; }
     break;
 
-  case 23: /* Flag: HIDDEN  */
+  case 23: /* Flag: "hidden"  */
                                                 { (yyval.mapFlags) = MAP_IS_HIDDEN; }
     break;
 
-  case 24: /* Flag: ALPHANUMERIC_KEYS  */
+  case 24: /* Flag: "alphanumeric_keys"  */
                                                 { (yyval.mapFlags) = MAP_HAS_ALPHANUMERIC; }
     break;
 
-  case 25: /* Flag: MODIFIER_KEYS  */
+  case 25: /* Flag: "modifier_keys"  */
                                                 { (yyval.mapFlags) = MAP_HAS_MODIFIER; }
     break;
 
-  case 26: /* Flag: KEYPAD_KEYS  */
+  case 26: /* Flag: "keypad_keys"  */
                                                 { (yyval.mapFlags) = MAP_HAS_KEYPAD; }
     break;
 
-  case 27: /* Flag: FUNCTION_KEYS  */
+  case 27: /* Flag: "function_keys"  */
                                                 { (yyval.mapFlags) = MAP_HAS_FN; }
     break;
 
-  case 28: /* Flag: ALTERNATE_GROUP  */
+  case 28: /* Flag: "alternate_group"  */
                                                 { (yyval.mapFlags) = MAP_IS_ALTGR; }
     break;
 
@@ -2058,38 +2276,38 @@ yyreduce:
                                                         { (yyval.any) = NULL; }
     break;
 
-  case 45: /* Decl: MergeMode STRING  */
+  case 45: /* Decl: MergeMode "string literal"  */
                         {
                             (yyval.any) = (ParseCommon *) IncludeCreate(param->ctx, (yyvsp[0].str), (yyvsp[-1].merge));
                             free((yyvsp[0].str));
                         }
     break;
 
-  case 46: /* VarDecl: Lhs EQUALS Expr SEMI  */
+  case 46: /* VarDecl: Lhs "=" Expr ";"  */
                         { (yyval.var) = VarCreate((yyvsp[-3].expr), (yyvsp[-1].expr)); }
     break;
 
-  case 47: /* VarDecl: Ident SEMI  */
+  case 47: /* VarDecl: Ident ";"  */
                         { (yyval.var) = BoolVarCreate((yyvsp[-1].atom), true); }
     break;
 
-  case 48: /* VarDecl: EXCLAM Ident SEMI  */
+  case 48: /* VarDecl: "!" Ident ";"  */
                         { (yyval.var) = BoolVarCreate((yyvsp[-1].atom), false); }
     break;
 
-  case 49: /* KeyNameDecl: KEYNAME EQUALS KeyCode SEMI  */
+  case 49: /* KeyNameDecl: "key name" "=" KeyCode ";"  */
                         { (yyval.keyCode) = KeycodeCreate((yyvsp[-3].atom), (yyvsp[-1].num)); }
     break;
 
-  case 50: /* KeyAliasDecl: ALIAS KEYNAME EQUALS KEYNAME SEMI  */
+  case 50: /* KeyAliasDecl: "alias" "key name" "=" "key name" ";"  */
                         { (yyval.keyAlias) = KeyAliasCreate((yyvsp[-3].atom), (yyvsp[-1].atom)); }
     break;
 
-  case 51: /* VModDecl: VIRTUAL_MODS VModDefList SEMI  */
+  case 51: /* VModDecl: "virtual_modifiers" VModDefList ";"  */
                         { (yyval.vmodList) = (yyvsp[-1].vmodList); }
     break;
 
-  case 52: /* VModDefList: VModDefList COMMA VModDef  */
+  case 52: /* VModDefList: VModDefList "," VModDef  */
                         { (yyval.vmodList).head = (yyvsp[-2].vmodList).head; (yyval.vmodList).last->common.next = &(yyvsp[0].vmod)->common; (yyval.vmodList).last = (yyvsp[0].vmod); }
     break;
 
@@ -2101,15 +2319,15 @@ yyreduce:
                         { (yyval.vmod) = VModCreate((yyvsp[0].atom), NULL); }
     break;
 
-  case 55: /* VModDef: Ident EQUALS Expr  */
+  case 55: /* VModDef: Ident "=" Expr  */
                         { (yyval.vmod) = VModCreate((yyvsp[-2].atom), (yyvsp[0].expr)); }
     break;
 
-  case 56: /* InterpretDecl: INTERPRET InterpretMatch OBRACE VarDeclList CBRACE SEMI  */
+  case 56: /* InterpretDecl: "interpret" InterpretMatch "{" VarDeclList "}" ";"  */
                         { (yyvsp[-4].interp)->def = (yyvsp[-2].varList).head; (yyval.interp) = (yyvsp[-4].interp); }
     break;
 
-  case 57: /* InterpretMatch: KeySym PLUS Expr  */
+  case 57: /* InterpretMatch: KeySym "+" Expr  */
                         { (yyval.interp) = InterpCreate((yyvsp[-2].keysym), (yyvsp[0].expr)); }
     break;
 
@@ -2135,11 +2353,11 @@ yyreduce:
                         { (yyval.varList).head = (yyval.varList).last = NULL; }
     break;
 
-  case 61: /* KeyTypeDecl: TYPE String OBRACE VarDeclList CBRACE SEMI  */
+  case 61: /* KeyTypeDecl: "type" String "{" VarDeclList "}" ";"  */
                         { (yyval.keyType) = KeyTypeCreate((yyvsp[-4].atom), (yyvsp[-2].varList).head); }
     break;
 
-  case 62: /* SymbolsDecl: KEY KEYNAME OBRACE OptSymbolsBody CBRACE SEMI  */
+  case 62: /* SymbolsDecl: "key" "key name" "{" OptSymbolsBody "}" ";"  */
                         { (yyval.syms) = SymbolsCreate((yyvsp[-4].atom), (yyvsp[-2].varList).head); }
     break;
 
@@ -2151,7 +2369,7 @@ yyreduce:
                                     { (yyval.varList).head = (yyval.varList).last = NULL; }
     break;
 
-  case 65: /* SymbolsBody: SymbolsBody COMMA SymbolsVarDecl  */
+  case 65: /* SymbolsBody: SymbolsBody "," SymbolsVarDecl  */
                         { (yyval.varList).head = (yyvsp[-2].varList).head; (yyval.varList).last->common.next = &(yyvsp[0].var)->common; (yyval.varList).last = (yyvsp[0].var); }
     break;
 
@@ -2159,11 +2377,11 @@ yyreduce:
                         { (yyval.varList).head = (yyval.varList).last = (yyvsp[0].var); }
     break;
 
-  case 67: /* SymbolsVarDecl: Lhs EQUALS Expr  */
+  case 67: /* SymbolsVarDecl: Lhs "=" Expr  */
                                                 { (yyval.var) = VarCreate((yyvsp[-2].expr), (yyvsp[0].expr)); }
     break;
 
-  case 68: /* SymbolsVarDecl: Lhs EQUALS MultiKeySymOrActionList  */
+  case 68: /* SymbolsVarDecl: Lhs "=" MultiKeySymOrActionList  */
                                                            { (yyval.var) = VarCreate((yyvsp[-2].expr), (yyvsp[0].expr)); }
     break;
 
@@ -2171,7 +2389,7 @@ yyreduce:
                                                 { (yyval.var) = BoolVarCreate((yyvsp[0].atom), true); }
     break;
 
-  case 70: /* SymbolsVarDecl: EXCLAM Ident  */
+  case 70: /* SymbolsVarDecl: "!" Ident  */
                                                 { (yyval.var) = BoolVarCreate((yyvsp[0].atom), false); }
     break;
 
@@ -2179,11 +2397,11 @@ yyreduce:
                                                 { (yyval.var) = VarCreate(NULL, (yyvsp[0].expr)); }
     break;
 
-  case 72: /* MultiKeySymOrActionList: OBRACKET MultiKeySymList CBRACKET  */
+  case 72: /* MultiKeySymOrActionList: "[" MultiKeySymList "]"  */
                         { (yyval.expr) = (yyvsp[-1].exprList).head; }
     break;
 
-  case 73: /* MultiKeySymOrActionList: OBRACKET NoSymbolOrActionList COMMA MultiKeySymList CBRACKET  */
+  case 73: /* MultiKeySymOrActionList: "[" NoSymbolOrActionList "," MultiKeySymList "]"  */
                         {
                             /* Prepend n times NoSymbol */
                             struct {ExprDef *head; ExprDef *last;} list = {
@@ -2203,11 +2421,11 @@ yyreduce:
                         }
     break;
 
-  case 74: /* MultiKeySymOrActionList: OBRACKET MultiActionList CBRACKET  */
+  case 74: /* MultiKeySymOrActionList: "[" MultiActionList "]"  */
                         { (yyval.expr) = (yyvsp[-1].exprList).head; }
     break;
 
-  case 75: /* MultiKeySymOrActionList: OBRACKET NoSymbolOrActionList COMMA MultiActionList CBRACKET  */
+  case 75: /* MultiKeySymOrActionList: "[" NoSymbolOrActionList "," MultiActionList "]"  */
                         {
                             /* Prepend n times NoAction() */
                             struct {ExprDef *head; ExprDef *last;} list = {
@@ -2226,15 +2444,15 @@ yyreduce:
                         }
     break;
 
-  case 76: /* MultiKeySymOrActionList: OBRACKET NoSymbolOrActionList CBRACKET  */
+  case 76: /* MultiKeySymOrActionList: "[" NoSymbolOrActionList "]"  */
                         { (yyval.expr) = ExprEmptyList(); }
     break;
 
-  case 77: /* NoSymbolOrActionList: NoSymbolOrActionList COMMA OBRACE CBRACE  */
+  case 77: /* NoSymbolOrActionList: NoSymbolOrActionList "," "{" "}"  */
                         { (yyval.noSymbolOrActionList) = (yyvsp[-3].noSymbolOrActionList) + 1; }
     break;
 
-  case 78: /* NoSymbolOrActionList: OBRACE CBRACE  */
+  case 78: /* NoSymbolOrActionList: "{" "}"  */
                         { (yyval.noSymbolOrActionList) = 1; }
     break;
 
@@ -2242,15 +2460,15 @@ yyreduce:
                         { (yyval.noSymbolOrActionList) = 0; }
     break;
 
-  case 80: /* GroupCompatDecl: GROUP Integer EQUALS Expr SEMI  */
+  case 80: /* GroupCompatDecl: "group" Integer "=" Expr ";"  */
                         { (yyval.groupCompat) = GroupCompatCreate((yyvsp[-3].num), (yyvsp[-1].expr)); }
     break;
 
-  case 81: /* ModMapDecl: MODIFIER_MAP Ident OBRACE KeyOrKeySymList CBRACE SEMI  */
+  case 81: /* ModMapDecl: "modifier_map" Ident "{" KeyOrKeySymList "}" ";"  */
                         { (yyval.modMask) = ModMapCreate((yyvsp[-4].atom), (yyvsp[-2].exprList).head); }
     break;
 
-  case 82: /* KeyOrKeySymList: KeyOrKeySymList COMMA KeyOrKeySym  */
+  case 82: /* KeyOrKeySymList: KeyOrKeySymList "," KeyOrKeySym  */
                         { (yyval.exprList).head = (yyvsp[-2].exprList).head; (yyval.exprList).last->common.next = &(yyvsp[0].expr)->common; (yyval.exprList).last = (yyvsp[0].expr); }
     break;
 
@@ -2258,7 +2476,7 @@ yyreduce:
                         { (yyval.exprList).head = (yyval.exprList).last = (yyvsp[0].expr); }
     break;
 
-  case 84: /* KeyOrKeySym: KEYNAME  */
+  case 84: /* KeyOrKeySym: "key name"  */
                         { (yyval.expr) = ExprCreateKeyName((yyvsp[0].atom)); }
     break;
 
@@ -2266,27 +2484,27 @@ yyreduce:
                         { (yyval.expr) = ExprCreateKeySym((yyvsp[0].keysym)); }
     break;
 
-  case 86: /* LedMapDecl: INDICATOR String OBRACE VarDeclList CBRACE SEMI  */
+  case 86: /* LedMapDecl: "indicator" String "{" VarDeclList "}" ";"  */
                         { (yyval.ledMap) = LedMapCreate((yyvsp[-4].atom), (yyvsp[-2].varList).head); }
     break;
 
-  case 87: /* LedNameDecl: INDICATOR Integer EQUALS Expr SEMI  */
+  case 87: /* LedNameDecl: "indicator" Integer "=" Expr ";"  */
                         { (yyval.ledName) = LedNameCreate((yyvsp[-3].num), (yyvsp[-1].expr), false); }
     break;
 
-  case 88: /* LedNameDecl: VIRTUAL INDICATOR Integer EQUALS Expr SEMI  */
+  case 88: /* LedNameDecl: "virtual" "indicator" Integer "=" Expr ";"  */
                         { (yyval.ledName) = LedNameCreate((yyvsp[-3].num), (yyvsp[-1].expr), true); }
     break;
 
-  case 89: /* ShapeDecl: SHAPE String OBRACE OutlineList CBRACE SEMI  */
+  case 89: /* ShapeDecl: "shape" String "{" OutlineList "}" ";"  */
                         { (yyval.geom) = NULL; }
     break;
 
-  case 90: /* ShapeDecl: SHAPE String OBRACE CoordList CBRACE SEMI  */
+  case 90: /* ShapeDecl: "shape" String "{" CoordList "}" ";"  */
                         { (void) (yyvsp[-2].expr); (yyval.geom) = NULL; }
     break;
 
-  case 91: /* SectionDecl: SECTION String OBRACE SectionBody CBRACE SEMI  */
+  case 91: /* SectionDecl: "section" String "{" SectionBody "}" ";"  */
                         { (yyval.geom) = NULL; }
     break;
 
@@ -2298,7 +2516,7 @@ yyreduce:
                                                         { (yyval.geom) = NULL; }
     break;
 
-  case 94: /* SectionBodyItem: ROW OBRACE RowBody CBRACE SEMI  */
+  case 94: /* SectionBodyItem: "row" "{" RowBody "}" ";"  */
                         { (yyval.geom) = NULL; }
     break;
 
@@ -2326,7 +2544,7 @@ yyreduce:
                                                 { (yyval.geom) = NULL; }
     break;
 
-  case 101: /* RowBodyItem: KEYS OBRACE Keys CBRACE SEMI  */
+  case 101: /* RowBodyItem: "keys" "{" Keys "}" ";"  */
                                                      { (yyval.geom) = NULL; }
     break;
 
@@ -2334,7 +2552,7 @@ yyreduce:
                         { FreeStmt((ParseCommon *) (yyvsp[0].var)); (yyval.geom) = NULL; }
     break;
 
-  case 103: /* Keys: Keys COMMA Key  */
+  case 103: /* Keys: Keys "," Key  */
                                                 { (yyval.geom) = NULL; }
     break;
 
@@ -2342,19 +2560,19 @@ yyreduce:
                                                 { (yyval.geom) = NULL; }
     break;
 
-  case 105: /* Key: KEYNAME  */
+  case 105: /* Key: "key name"  */
                         { (yyval.geom) = NULL; }
     break;
 
-  case 106: /* Key: OBRACE ExprList CBRACE  */
+  case 106: /* Key: "{" ExprList "}"  */
                         { FreeStmt((ParseCommon *) (yyvsp[-1].exprList).head); (yyval.geom) = NULL; }
     break;
 
-  case 107: /* OverlayDecl: OVERLAY String OBRACE OverlayKeyList CBRACE SEMI  */
+  case 107: /* OverlayDecl: "overlay" String "{" OverlayKeyList "}" ";"  */
                         { (yyval.geom) = NULL; }
     break;
 
-  case 108: /* OverlayKeyList: OverlayKeyList COMMA OverlayKey  */
+  case 108: /* OverlayKeyList: OverlayKeyList "," OverlayKey  */
                                                         { (yyval.geom) = NULL; }
     break;
 
@@ -2362,11 +2580,11 @@ yyreduce:
                                                         { (yyval.geom) = NULL; }
     break;
 
-  case 110: /* OverlayKey: KEYNAME EQUALS KEYNAME  */
+  case 110: /* OverlayKey: "key name" "=" "key name"  */
                                                         { (yyval.geom) = NULL; }
     break;
 
-  case 111: /* OutlineList: OutlineList COMMA OutlineInList  */
+  case 111: /* OutlineList: OutlineList "," OutlineInList  */
                         { (yyval.geom) = NULL;}
     break;
 
@@ -2374,19 +2592,19 @@ yyreduce:
                         { (yyval.geom) = NULL; }
     break;
 
-  case 113: /* OutlineInList: OBRACE CoordList CBRACE  */
+  case 113: /* OutlineInList: "{" CoordList "}"  */
                         { (void) (yyvsp[-1].expr); (yyval.geom) = NULL; }
     break;
 
-  case 114: /* OutlineInList: Ident EQUALS OBRACE CoordList CBRACE  */
+  case 114: /* OutlineInList: Ident "=" "{" CoordList "}"  */
                         { (void) (yyvsp[-1].expr); (yyval.geom) = NULL; }
     break;
 
-  case 115: /* OutlineInList: Ident EQUALS Expr  */
+  case 115: /* OutlineInList: Ident "=" Expr  */
                         { FreeStmt((ParseCommon *) (yyvsp[0].expr)); (yyval.geom) = NULL; }
     break;
 
-  case 116: /* CoordList: CoordList COMMA Coord  */
+  case 116: /* CoordList: CoordList "," Coord  */
                         { (void) (yyvsp[-2].expr); (void) (yyvsp[0].expr); (yyval.expr) = NULL; }
     break;
 
@@ -2394,27 +2612,27 @@ yyreduce:
                         { (void) (yyvsp[0].expr); (yyval.expr) = NULL; }
     break;
 
-  case 118: /* Coord: OBRACKET SignedNumber COMMA SignedNumber CBRACKET  */
+  case 118: /* Coord: "[" SignedNumber "," SignedNumber "]"  */
                         { (yyval.expr) = NULL; }
     break;
 
-  case 119: /* DoodadDecl: DoodadType String OBRACE VarDeclList CBRACE SEMI  */
+  case 119: /* DoodadDecl: DoodadType String "{" VarDeclList "}" ";"  */
                         { FreeStmt((ParseCommon *) (yyvsp[-2].varList).head); (yyval.geom) = NULL; }
     break;
 
-  case 120: /* DoodadType: TEXT  */
+  case 120: /* DoodadType: "text"  */
                                 { (yyval.num) = 0; }
     break;
 
-  case 121: /* DoodadType: OUTLINE  */
+  case 121: /* DoodadType: "outline"  */
                                 { (yyval.num) = 0; }
     break;
 
-  case 122: /* DoodadType: SOLID  */
+  case 122: /* DoodadType: "solid"  */
                                 { (yyval.num) = 0; }
     break;
 
-  case 123: /* DoodadType: LOGO  */
+  case 123: /* DoodadType: "logo"  */
                                 { (yyval.num) = 0; }
     break;
 
@@ -2426,47 +2644,47 @@ yyreduce:
                                 { (yyval.atom) = (yyvsp[0].atom); }
     break;
 
-  case 126: /* Element: ACTION_TOK  */
+  case 126: /* Element: "action"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "action"); }
     break;
 
-  case 127: /* Element: INTERPRET  */
+  case 127: /* Element: "interpret"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "interpret"); }
     break;
 
-  case 128: /* Element: TYPE  */
+  case 128: /* Element: "type"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "type"); }
     break;
 
-  case 129: /* Element: KEY  */
+  case 129: /* Element: "key"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "key"); }
     break;
 
-  case 130: /* Element: GROUP  */
+  case 130: /* Element: "group"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "group"); }
     break;
 
-  case 131: /* Element: MODIFIER_MAP  */
+  case 131: /* Element: "modifier_map"  */
                         {(yyval.atom) = xkb_atom_intern_literal(param->ctx, "modifier_map");}
     break;
 
-  case 132: /* Element: INDICATOR  */
+  case 132: /* Element: "indicator"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "indicator"); }
     break;
 
-  case 133: /* Element: SHAPE  */
+  case 133: /* Element: "shape"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "shape"); }
     break;
 
-  case 134: /* Element: ROW  */
+  case 134: /* Element: "row"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "row"); }
     break;
 
-  case 135: /* Element: SECTION  */
+  case 135: /* Element: "section"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "section"); }
     break;
 
-  case 136: /* Element: TEXT  */
+  case 136: /* Element: "text"  */
                         { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "text"); }
     break;
 
@@ -2478,23 +2696,23 @@ yyreduce:
                                         { (yyval.merge) = MERGE_DEFAULT; }
     break;
 
-  case 139: /* MergeMode: INCLUDE  */
+  case 139: /* MergeMode: "include"  */
                                         { (yyval.merge) = MERGE_DEFAULT; }
     break;
 
-  case 140: /* MergeMode: AUGMENT  */
+  case 140: /* MergeMode: "augment"  */
                                         { (yyval.merge) = MERGE_AUGMENT; }
     break;
 
-  case 141: /* MergeMode: OVERRIDE  */
+  case 141: /* MergeMode: "override"  */
                                         { (yyval.merge) = MERGE_OVERRIDE; }
     break;
 
-  case 142: /* MergeMode: REPLACE  */
+  case 142: /* MergeMode: "replace"  */
                                         { (yyval.merge) = MERGE_REPLACE; }
     break;
 
-  case 143: /* MergeMode: ALTERNATE  */
+  case 143: /* MergeMode: "alternate"  */
                 {
                     /*
                      * This used to be MERGE_ALT_FORM. This functionality was
@@ -2506,7 +2724,7 @@ yyreduce:
                 }
     break;
 
-  case 144: /* ExprList: ExprList COMMA Expr  */
+  case 144: /* ExprList: ExprList "," Expr  */
                         {
                             if ((yyvsp[0].expr)) {
                                 if ((yyvsp[-2].exprList).head) {
@@ -2528,23 +2746,23 @@ yyreduce:
                         { (yyval.exprList).head = (yyval.exprList).last = NULL; }
     break;
 
-  case 147: /* Expr: Expr DIVIDE Expr  */
+  case 147: /* Expr: Expr "/" Expr  */
                         { (yyval.expr) = ExprCreateBinary(STMT_EXPR_DIVIDE, (yyvsp[-2].expr), (yyvsp[0].expr)); }
     break;
 
-  case 148: /* Expr: Expr PLUS Expr  */
+  case 148: /* Expr: Expr "+" Expr  */
                         { (yyval.expr) = ExprCreateBinary(STMT_EXPR_ADD, (yyvsp[-2].expr), (yyvsp[0].expr)); }
     break;
 
-  case 149: /* Expr: Expr MINUS Expr  */
+  case 149: /* Expr: Expr "-" Expr  */
                         { (yyval.expr) = ExprCreateBinary(STMT_EXPR_SUBTRACT, (yyvsp[-2].expr), (yyvsp[0].expr)); }
     break;
 
-  case 150: /* Expr: Expr TIMES Expr  */
+  case 150: /* Expr: Expr "*" Expr  */
                         { (yyval.expr) = ExprCreateBinary(STMT_EXPR_MULTIPLY, (yyvsp[-2].expr), (yyvsp[0].expr)); }
     break;
 
-  case 151: /* Expr: Lhs EQUALS Expr  */
+  case 151: /* Expr: Lhs "=" Expr  */
                         { (yyval.expr) = ExprCreateBinary(STMT_EXPR_ASSIGN, (yyvsp[-2].expr), (yyvsp[0].expr)); }
     break;
 
@@ -2552,19 +2770,19 @@ yyreduce:
                         { (yyval.expr) = (yyvsp[0].expr); }
     break;
 
-  case 153: /* Term: MINUS Term  */
+  case 153: /* Term: "-" Term  */
                         { (yyval.expr) = ExprCreateUnary(STMT_EXPR_NEGATE, (yyvsp[0].expr)); }
     break;
 
-  case 154: /* Term: PLUS Term  */
+  case 154: /* Term: "+" Term  */
                         { (yyval.expr) = ExprCreateUnary(STMT_EXPR_UNARY_PLUS, (yyvsp[0].expr)); }
     break;
 
-  case 155: /* Term: EXCLAM Term  */
+  case 155: /* Term: "!" Term  */
                         { (yyval.expr) = ExprCreateUnary(STMT_EXPR_NOT, (yyvsp[0].expr)); }
     break;
 
-  case 156: /* Term: INVERT Term  */
+  case 156: /* Term: "~" Term  */
                         { (yyval.expr) = ExprCreateUnary(STMT_EXPR_INVERT, (yyvsp[0].expr)); }
     break;
 
@@ -2572,7 +2790,7 @@ yyreduce:
                         { (yyval.expr) = (yyvsp[0].expr); }
     break;
 
-  case 158: /* Term: FieldSpec OPAREN ExprList CPAREN  */
+  case 158: /* Term: FieldSpec "(" ExprList ")"  */
                         { (yyval.expr) = ExprCreateAction((yyvsp[-3].atom), (yyvsp[-1].exprList).head); }
     break;
 
@@ -2584,11 +2802,11 @@ yyreduce:
                         { (yyval.expr) = (yyvsp[0].expr); }
     break;
 
-  case 161: /* Term: OPAREN Expr CPAREN  */
+  case 161: /* Term: "(" Expr ")"  */
                         { (yyval.expr) = (yyvsp[-1].expr); }
     break;
 
-  case 162: /* MultiActionList: MultiActionList COMMA Action  */
+  case 162: /* MultiActionList: MultiActionList "," Action  */
                         {
                             ExprDef *expr = ExprCreateActionList((yyvsp[0].expr));
                             (yyval.exprList) = (yyvsp[-2].exprList);
@@ -2596,7 +2814,7 @@ yyreduce:
                         }
     break;
 
-  case 163: /* MultiActionList: MultiActionList COMMA Actions  */
+  case 163: /* MultiActionList: MultiActionList "," Actions  */
                         { (yyval.exprList) = (yyvsp[-2].exprList); (yyval.exprList).last->common.next = &(yyvsp[0].expr)->common; (yyval.exprList).last = (yyvsp[0].expr); }
     break;
 
@@ -2608,7 +2826,7 @@ yyreduce:
                         { (yyval.exprList).head = (yyval.exprList).last = (yyvsp[0].expr); }
     break;
 
-  case 166: /* ActionList: ActionList COMMA Action  */
+  case 166: /* ActionList: ActionList "," Action  */
                         { (yyval.exprList) = (yyvsp[-2].exprList); (yyval.exprList).last->common.next = &(yyvsp[0].expr)->common; (yyval.exprList).last = (yyvsp[0].expr); }
     break;
 
@@ -2616,7 +2834,7 @@ yyreduce:
                         { (yyval.exprList).head = (yyval.exprList).last = (yyvsp[0].expr); }
     break;
 
-  case 168: /* NonEmptyActions: OBRACE ActionList CBRACE  */
+  case 168: /* NonEmptyActions: "{" ActionList "}"  */
                         { (yyval.expr) = ExprCreateActionList((yyvsp[-1].exprList).head); }
     break;
 
@@ -2624,11 +2842,11 @@ yyreduce:
                         { (yyval.expr) = (yyvsp[0].expr); }
     break;
 
-  case 170: /* Actions: OBRACE CBRACE  */
+  case 170: /* Actions: "{" "}"  */
                         { (yyval.expr) = ExprCreateActionList(NULL); }
     break;
 
-  case 171: /* Action: FieldSpec OPAREN ExprList CPAREN  */
+  case 171: /* Action: FieldSpec "(" ExprList ")"  */
                         { (yyval.expr) = ExprCreateAction((yyvsp[-3].atom), (yyvsp[-1].exprList).head); }
     break;
 
@@ -2636,15 +2854,15 @@ yyreduce:
                         { (yyval.expr) = ExprCreateIdent((yyvsp[0].atom)); }
     break;
 
-  case 173: /* Lhs: FieldSpec DOT FieldSpec  */
+  case 173: /* Lhs: FieldSpec "." FieldSpec  */
                         { (yyval.expr) = ExprCreateFieldRef((yyvsp[-2].atom), (yyvsp[0].atom)); }
     break;
 
-  case 174: /* Lhs: FieldSpec OBRACKET Expr CBRACKET  */
+  case 174: /* Lhs: FieldSpec "[" Expr "]"  */
                         { (yyval.expr) = ExprCreateArrayRef(XKB_ATOM_NONE, (yyvsp[-3].atom), (yyvsp[-1].expr)); }
     break;
 
-  case 175: /* Lhs: FieldSpec DOT FieldSpec OBRACKET Expr CBRACKET  */
+  case 175: /* Lhs: FieldSpec "." FieldSpec "[" Expr "]"  */
                         { (yyval.expr) = ExprCreateArrayRef((yyvsp[-5].atom), (yyvsp[-3].atom), (yyvsp[-1].expr)); }
     break;
 
@@ -2660,11 +2878,11 @@ yyreduce:
                         { (yyval.expr) = ExprCreateFloat(/* Discard $1 */); }
     break;
 
-  case 179: /* Terminal: KEYNAME  */
+  case 179: /* Terminal: "key name"  */
                         { (yyval.expr) = ExprCreateKeyName((yyvsp[0].atom)); }
     break;
 
-  case 180: /* MultiKeySymList: MultiKeySymList COMMA KeySymLit  */
+  case 180: /* MultiKeySymList: MultiKeySymList "," KeySymLit  */
                         {
                             ExprDef *expr = ExprCreateKeySymList((yyvsp[0].keysym));
                             (yyval.exprList) = (yyvsp[-2].exprList);
@@ -2672,7 +2890,7 @@ yyreduce:
                         }
     break;
 
-  case 181: /* MultiKeySymList: MultiKeySymList COMMA KeySyms  */
+  case 181: /* MultiKeySymList: MultiKeySymList "," KeySyms  */
                         { (yyval.exprList) = (yyvsp[-2].exprList); (yyval.exprList).last->common.next = &(yyvsp[0].expr)->common; (yyval.exprList).last = (yyvsp[0].expr); }
     break;
 
@@ -2684,11 +2902,11 @@ yyreduce:
                         { (yyval.exprList).head = (yyval.exprList).last = (yyvsp[0].expr); }
     break;
 
-  case 184: /* KeySymList: KeySymList COMMA KeySymLit  */
+  case 184: /* KeySymList: KeySymList "," KeySymLit  */
                         { (yyval.expr) = ExprAppendKeySymList((yyvsp[-2].expr), (yyvsp[0].keysym)); }
     break;
 
-  case 185: /* KeySymList: KeySymList COMMA STRING  */
+  case 185: /* KeySymList: KeySymList "," "string literal"  */
                         {
                             (yyval.expr) = ExprKeySymListAppendString(param->scanner, (yyvsp[-2].expr), (yyvsp[0].str));
                             free((yyvsp[0].str));
@@ -2705,7 +2923,7 @@ yyreduce:
                         }
     break;
 
-  case 187: /* KeySymList: STRING  */
+  case 187: /* KeySymList: "string literal"  */
                         {
                             (yyval.expr) = ExprCreateKeySymList(XKB_KEY_NoSymbol);
                             if (!(yyval.expr))
@@ -2717,11 +2935,11 @@ yyreduce:
                         }
     break;
 
-  case 188: /* NonEmptyKeySyms: OBRACE KeySymList CBRACE  */
+  case 188: /* NonEmptyKeySyms: "{" KeySymList "}"  */
                         { (yyval.expr) = (yyvsp[-1].expr); }
     break;
 
-  case 189: /* NonEmptyKeySyms: STRING  */
+  case 189: /* NonEmptyKeySyms: "string literal"  */
                         {
                             (yyval.expr) = ExprCreateKeySymList(XKB_KEY_NoSymbol);
                             if (!(yyval.expr))
@@ -2737,7 +2955,7 @@ yyreduce:
                         { (yyval.expr) = (yyvsp[0].expr); }
     break;
 
-  case 191: /* KeySyms: OBRACE CBRACE  */
+  case 191: /* KeySyms: "{" "}"  */
                         { (yyval.expr) = ExprCreateKeySymList(XKB_KEY_NoSymbol); }
     break;
 
@@ -2745,7 +2963,7 @@ yyreduce:
                         { (yyval.keysym) = (yyvsp[0].keysym); }
     break;
 
-  case 193: /* KeySym: STRING  */
+  case 193: /* KeySym: "string literal"  */
                         {
                             (yyval.keysym) = KeysymParseString(param->scanner, (yyvsp[0].str));
                             free((yyvsp[0].str));
@@ -2754,21 +2972,21 @@ yyreduce:
                         }
     break;
 
-  case 194: /* KeySymLit: IDENT  */
+  case 194: /* KeySymLit: "identifier"  */
                         {
                             if (!resolve_keysym(param, (yyvsp[0].sval), &(yyval.keysym))) {
                                 parser_warn(
                                     param,
                                     XKB_WARNING_UNRECOGNIZED_KEYSYM,
                                     "unrecognized keysym \"%.*s\"",
-                                    (yyvsp[0].sval).len, (yyvsp[0].sval).start
+                                    (unsigned int) (yyvsp[0].sval).len, (yyvsp[0].sval).start
                                 );
                                 (yyval.keysym) = XKB_KEY_NoSymbol;
                             }
                         }
     break;
 
-  case 195: /* KeySymLit: SECTION  */
+  case 195: /* KeySymLit: "section"  */
                                 { (yyval.keysym) = XKB_KEY_section; }
     break;
 
@@ -2822,7 +3040,7 @@ yyreduce:
                         }
     break;
 
-  case 197: /* SignedNumber: MINUS Number  */
+  case 197: /* SignedNumber: "-" Number  */
                                         { (yyval.num) = -(yyvsp[0].num); }
     break;
 
@@ -2830,35 +3048,35 @@ yyreduce:
                                         { (yyval.num) = (yyvsp[0].num); }
     break;
 
-  case 199: /* Number: FLOAT  */
+  case 199: /* Number: "float literal"  */
                                 { (yyval.num) = (yyvsp[0].num); }
     break;
 
-  case 200: /* Number: INTEGER  */
+  case 200: /* Number: "integer literal"  */
                                 { (yyval.num) = (yyvsp[0].num); }
     break;
 
-  case 201: /* Float: FLOAT  */
+  case 201: /* Float: "float literal"  */
                                 { (yyval.num) = 0; }
     break;
 
-  case 202: /* Integer: INTEGER  */
+  case 202: /* Integer: "integer literal"  */
                                 { (yyval.num) = (yyvsp[0].num); }
     break;
 
-  case 203: /* KeyCode: INTEGER  */
+  case 203: /* KeyCode: "integer literal"  */
                                 { (yyval.num) = (yyvsp[0].num); }
     break;
 
-  case 204: /* Ident: IDENT  */
+  case 204: /* Ident: "identifier"  */
                                 { (yyval.atom) = xkb_atom_intern(param->ctx, (yyvsp[0].sval).start, (yyvsp[0].sval).len); }
     break;
 
-  case 205: /* Ident: DEFAULT  */
+  case 205: /* Ident: "default"  */
                                 { (yyval.atom) = xkb_atom_intern_literal(param->ctx, "default"); }
     break;
 
-  case 206: /* String: STRING  */
+  case 206: /* String: "string literal"  */
                                 { (yyval.atom) = xkb_atom_intern(param->ctx, (yyvsp[0].str), strlen((yyvsp[0].str))); free((yyvsp[0].str)); }
     break;
 
@@ -2870,7 +3088,7 @@ yyreduce:
                                 { (yyval.str) = NULL; }
     break;
 
-  case 209: /* MapName: STRING  */
+  case 209: /* MapName: "string literal"  */
                                 { (yyval.str) = (yyvsp[0].str); }
     break;
 
@@ -2921,7 +3139,37 @@ yyerrlab:
   if (!yyerrstatus)
     {
       ++yynerrs;
-      yyerror (param, YY_("syntax error"));
+      {
+        yypcontext_t yyctx
+          = {yyssp, yytoken};
+        char const *yymsgp = YY_("syntax error");
+        int yysyntax_error_status;
+        yysyntax_error_status = yysyntax_error (&yymsg_alloc, &yymsg, &yyctx);
+        if (yysyntax_error_status == 0)
+          yymsgp = yymsg;
+        else if (yysyntax_error_status == -1)
+          {
+            if (yymsg != yymsgbuf)
+              YYSTACK_FREE (yymsg);
+            yymsg = YY_CAST (char *,
+                             YYSTACK_ALLOC (YY_CAST (YYSIZE_T, yymsg_alloc)));
+            if (yymsg)
+              {
+                yysyntax_error_status
+                  = yysyntax_error (&yymsg_alloc, &yymsg, &yyctx);
+                yymsgp = yymsg;
+              }
+            else
+              {
+                yymsg = yymsgbuf;
+                yymsg_alloc = sizeof yymsgbuf;
+                yysyntax_error_status = YYENOMEM;
+              }
+          }
+        yyerror (param, yymsgp);
+        if (yysyntax_error_status == YYENOMEM)
+          YYNOMEM;
+      }
     }
 
   if (yyerrstatus == 3)
@@ -3063,7 +3311,8 @@ yyreturnlab:
   if (yyss != yyssa)
     YYSTACK_FREE (yyss);
 #endif
-
+  if (yymsg != yymsgbuf)
+    YYSTACK_FREE (yymsg);
   return yyresult;
 }
 

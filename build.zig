@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const version: std.SemanticVersion = .{ .major = 1, .minor = 7, .patch = 0 };
+const version: std.SemanticVersion = .{ .major = 1, .minor = 11, .patch = 0 };
 
 pub fn build(b: *std.Build) void {
     const upstream = b.dependency("libxkbcommon", .{});
@@ -87,7 +87,7 @@ pub fn build(b: *std.Build) void {
 
     const generated_parser = generateParser(b, upstream);
 
-    const update_parser = b.step("update-parser", "Updated parser.c and parser.h (requires bison or byacc)");
+    const update_parser = b.step("update-parser", "Updated parser.c and parser.h (requires bison)");
     if (generated_parser) |generated| {
         const generated_parser_c, const generated_parser_h = generated;
 
@@ -96,7 +96,7 @@ pub fn build(b: *std.Build) void {
         update.addCopyFileToSource(generated_parser_c, "parser.c");
         update.addCopyFileToSource(generated_parser_h, "parser.h");
     } else {
-        update_parser.addError("unable to find bison or byacc in $PATH or search prefixes (--search-prefix)", .{}) catch {};
+        update_parser.addError("unable to find bison in $PATH or search prefixes (--search-prefix)", .{}) catch {};
         update_parser.addError("parser.c and parser.h could not be updated", .{}) catch {};
     }
 
@@ -217,29 +217,13 @@ fn generateParser(
     b: *std.Build,
     upstream: *std.Build.Dependency,
 ) ?struct { std.Build.LazyPath, std.Build.LazyPath } {
-    const exe, const kind: enum { bison, byacc } = if (b.findProgram(&.{ "bison", "win_bison" }, &.{}) catch null) |bison|
-        .{ bison, .bison }
-    else if (b.findProgram(&.{"byacc"}, &.{}) catch null) |byacc|
-        .{ byacc, .byacc }
-    else
-        return null;
-
     const parser_write_files = b.addWriteFiles();
     _ = parser_write_files.addCopyFile(upstream.path("src/xkbcomp/parser.y"), "parser.y");
 
-    const run_step = std.Build.Step.Run.create(b, b.fmt("run {s}", .{@tagName(kind)}));
+    const run_step = std.Build.Step.Run.create(b, "run bison");
     run_step.setCwd(parser_write_files.getDirectory());
-    run_step.addFileArg(.{ .cwd_relative = exe });
-
-    switch (kind) {
-        .bison => {
-            _ = run_step.addArg("--defines=parser.h");
-        },
-        .byacc => {
-            run_step.addArgs(&.{ "-H", "parser.h" });
-        },
-    }
-
+    run_step.addFileArg(.{ .cwd_relative = b.findProgram(&.{ "bison", "win_bison" }, &.{}) catch return null });
+    run_step.addArg("--defines=parser.h");
     run_step.addArg("-o");
     const parser_c = run_step.addOutputFileArg("parser.c");
     run_step.addArgs(&.{ "-p", "_xkbcommon_", "--no-lines" });
@@ -303,6 +287,7 @@ const libxkbcommon_sources: []const []const u8 = &.{
     "src/keysym-utf.c",
     "src/keymap.c",
     "src/keymap-priv.c",
+    "src/rmlvo.c",
     "src/scanner-utils.c",
     "src/state.c",
     "src/text.c",
