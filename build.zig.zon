@@ -1,15 +1,15 @@
 .{
     .name = .libxkbcommon,
     .version = "1.11.0",
-    .minimum_zig_version = "0.14.0",
+    .minimum_zig_version = "0.15.1",
     .dependencies = .{
         .libxkbcommon = .{
             .url = "git+https://github.com/xkbcommon/libxkbcommon.git?ref=xkbcommon-1.11.0#0f9cefb1fedb23433666fa5d9045e48ff030c006",
             .hash = "N-V-__8AAFRAZAD02nId1w02lyWXmN-hvo873BSh9wZDxjSN",
         },
         .libxml2 = .{
-            .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.14.3#2fe1a209680cffa7f2c8b2f36228c519da26d0f8",
-            .hash = "libxml2-2.14.3-qHdjhm8-AADj87LUvzLuq5RnsoKBZCsh1dMCP3yCI2hc",
+            .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.14.3-4#86c4742a9becd6c86dc79180f806ed344fd2a727",
+            .hash = "libxml2-2.14.3-4-qHdjhn9FAACpyisv_5DDFVQlegox6QE3mTpdlr44RcbT",
             .lazy = true,
         },
     },
