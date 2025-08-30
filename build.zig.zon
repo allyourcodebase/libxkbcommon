@@ -1,12 +1,11 @@
 .{
     .name = .libxkbcommon,
-    .version = "1.9.2",
+    .version = "1.11.0",
     .minimum_zig_version = "0.14.0",
     .dependencies = .{
         .libxkbcommon = .{
-            .url = "git+https://github.com/xkbcommon/libxkbcommon.git?ref=xkbcommon-1.9.2#dd642359f8d43c09968e34ca7f1eb1121b2dfd70",
-            // alternative: .url = "https://xkbcommon.org/download/libxkbcommon-1.9.2.tar.xz",
-            .hash = "N-V-__8AAEg7XADqmm_Axa-ISq9_0pDsCLjf9Xd8NIOndVMH",
+            .url = "git+https://github.com/xkbcommon/libxkbcommon.git?ref=xkbcommon-1.11.0#0f9cefb1fedb23433666fa5d9045e48ff030c006",
+            .hash = "N-V-__8AAFRAZAD02nId1w02lyWXmN-hvo873BSh9wZDxjSN",
         },
         .libxml2 = .{
             .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.14.3#2fe1a209680cffa7f2c8b2f36228c519da26d0f8",
