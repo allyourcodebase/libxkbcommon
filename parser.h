@@ -111,10 +111,11 @@ extern int _xkbcommon_debug;
     EXCLAM = 54,                   /* "!"  */
     INVERT = 55,                   /* "~"  */
     STRING = 60,                   /* "string literal"  */
-    INTEGER = 61,                  /* "integer literal"  */
-    FLOAT = 62,                    /* "float literal"  */
-    IDENT = 63,                    /* "identifier"  */
-    KEYNAME = 64,                  /* "key name"  */
+    DECIMAL_DIGIT = 61,            /* "decimal digit"  */
+    INTEGER = 62,                  /* "integer literal"  */
+    FLOAT = 63,                    /* "float literal"  */
+    IDENT = 64,                    /* "identifier"  */
+    KEYNAME = 65,                  /* "key name"  */
     PARTIAL = 70,                  /* "partial"  */
     DEFAULT = 71,                  /* "default"  */
     HIDDEN = 72,                   /* "hidden"  */
