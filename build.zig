@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const version: std.SemanticVersion = .{ .major = 1, .minor = 11, .patch = 0 };
+const version = std.SemanticVersion.parse(@import("build.zig.zon").version) catch unreachable;
 
 pub fn build(b: *std.Build) void {
     const upstream = b.dependency("libxkbcommon", .{});
@@ -30,9 +30,10 @@ pub fn build(b: *std.Build) void {
 
     // Most of these config options have not been tested.
 
-    const xkb_config_root = b.option([]const u8, "xkb-config-root", "The XKB config root") orelse b.pathJoin(&.{ b.install_prefix, "share/X11/xkb" });
+    const xkb_legacy_root = b.option([]const u8, "xkb-legacy-root", " [default=$prefix/share/X11/locale]") orelse b.pathJoin(&.{ b.install_prefix, "share/X11/xkb" });
+    const xkb_config_root = b.option([]const u8, "xkb-config-root", "The XKB config root [default=$prefix/share/X11/locale]") orelse xkb_legacy_root;
     const xkb_config_extra_path = b.option([]const u8, "xkb-config-extra-path", "Extra lookup path for system-wide XKB data [default=$sysconfdir/xkb]") orelse "/etc/xkb";
-    const x_locale_root = b.option([]const u8, "x-locale-root", "The X locale root [default=$datadir/X11/locale]") orelse b.pathJoin(&.{ b.install_prefix, "share/X11/locale" });
+    const x_locale_root = b.option([]const u8, "x-locale-root", "The X locale root [default=$prefix/share/X11/locale]") orelse b.pathJoin(&.{ b.install_prefix, "share/X11/locale" });
     // const bash_completion_path = b.option([]const u8, "bash-completion-path", "Directory for bash completion scripts");
     const default_rules = b.option([]const u8, "default-rules", "Default XKB ruleset") orelse "evdev";
     const default_model = b.option([]const u8, "default-model", "Default XKB model") orelse "pc105";
@@ -52,6 +53,7 @@ pub fn build(b: *std.Build) void {
         .LIBXKBCOMMON_VERSION = b.fmt("{f}", .{version}),
         .LIBXKBCOMMON_TOOL_PATH = b.pathJoin(&.{ b.install_prefix, "libexec/xkbcommon" }),
         ._GNU_SOURCE = 1,
+        .DFLT_XKB_LEGACY_ROOT = xkb_legacy_root,
         .DFLT_XKB_CONFIG_ROOT = xkb_config_root,
         .DFLT_XKB_CONFIG_EXTRA_PATH = xkb_config_extra_path,
         .XLOCALEDIR = x_locale_root,
@@ -61,7 +63,10 @@ pub fn build(b: *std.Build) void {
         .DEFAULT_XKB_VARIANT = .null,
         .DEFAULT_XKB_OPTIONS = .null,
         .HAVE_UNISTD_H = 1,
+        .HAVE_DIRENT_H = 1,
+        .HAVE_XKB_EXTENSIONS_DIRECTORIES = 1,
         .HAVE___BUILTIN_EXPECT = 1,
+        .HAVE_REAL_PATH = 1,
         .HAVE_EACCESS = if (target.result.os.tag == .linux) @as(i64, 1) else null,
         .HAVE_EUIDACCESS = if (target.result.os.tag == .linux) @as(i64, 1) else null,
         .HAVE_MMAP = if (target.result.os.tag != .windows) @as(i64, 1) else null,
@@ -286,6 +291,7 @@ const libxkbcommon_sources: []const []const u8 = &.{
     "src/keysym-case-mappings.c",
     "src/keysym-utf.c",
     "src/keymap.c",
+    "src/keymap-compare.c",
     "src/keymap-priv.c",
     "src/rmlvo.c",
     "src/scanner-utils.c",
@@ -301,9 +307,11 @@ const libxkbcommon_x11_sources: []const []const u8 = &.{
     "src/x11/keymap.c",
     "src/x11/state.c",
     "src/x11/util.c",
+    "src/context.c",
     "src/context-priv.c",
     "src/keymap-priv.c",
     "src/atom.c",
+    "src/utils.c",
 };
 
 const libxkbregistry_sources: []const []const u8 = &.{

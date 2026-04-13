@@ -31,6 +31,7 @@ const libxkbcommon_dependency = b.dependency("libxkbcommon", .{
     // This example will assume that the config root of the host system is in `/usr`.
     // This does not work on distributions that don't follow the Filesystem Hierarchy Standard (FHS) like NixOS.
     .@"xkb-config-root" = "/usr/share/X11/xkb",
+    .@"xkb-legacy-root" = "/usr/share/X11/xkb", // Legacy X11 config root
 
     // The X locale root.
     // Will default to "${INSTALL_PREFIX}/share/X11/locale" i.e. `zig-out/share/X11/locale`.
