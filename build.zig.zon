@@ -8,8 +8,8 @@
             .hash = "N-V-__8AAGh7bAAD9LH6Hh6HB6br9SDZmRBbRu-_1NNpQ4GL",
         },
         .libxml2 = .{
-            .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.15.1-2#2528fad1bf17a0a70999930cfd9280554f547787",
-            .hash = "libxml2-2.15.1-2-qHdjhmNMAAAiZOWqVridicq2oMf5NHv0n9W41bz9FtMM",
+            .url = "git+https://github.com/allyourcodebase/libxml2.git?ref=2.15.4#5df5e2832f9427aa3e587247fc9b1891549e8022",
+            .hash = "libxml2-2.15.4-qHdjhpxMAADyJXDdys1_4kXOxUgriHp-tJT4jofPuYa-",
             .lazy = true,
         },
     },
