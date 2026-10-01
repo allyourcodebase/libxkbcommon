@@ -1,7 +1,7 @@
 .{
     .name = .libxkbcommon,
     .version = "1.13.1",
-    .minimum_zig_version = "0.15.2",
+    .minimum_zig_version = "0.16.0",
     .dependencies = .{
         .libxkbcommon = .{
             .url = "git+https://github.com/xkbcommon/libxkbcommon.git?ref=xkbcommon-1.13.1#6f76d19db72b5d450e927b41e1e96cbe3252aba8",
